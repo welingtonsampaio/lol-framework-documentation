@@ -1,0 +1,636 @@
+<div class="row">
+  <div class="span10 offset1">
+    <div class="box">
+      <h2>Css - DataTable</h2>
+      <p>Created to facilitate interaction with the management of your application tables. Needing only a table in html
+        to be instantiated automatically. Uses javascript for its creation, as you can check in JS
+        (<%= link_to :link, js_datatable_path %>).</p>
+
+
+      <div class="example">
+        <div class="title">
+          example
+        </div>
+        <div class="content">
+          <table id="lol-datatable" data-lol-datatable="true">
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr
+            data-datatable-link="http://welington.zaez.net/"
+            data-datatable-edit-link="#edit_my_page_ws"
+            data-datatable-view-link="#view_my_page_ws"
+            data-datatable-delete-link="#delete_my_page_ws">
+              <td>1</td>
+              <td>Welington</td>
+              <td>Sampaio</td>
+            </tr>
+            <tr
+            data-datatable-link="http://fabricio.zaez.net/"
+            data-datatable-edit-link="#edit_my_page_fm"
+            data-datatable-view-link="#view_my_page_fm"
+            data-datatable-delete-link="#delete_my_page_fm">
+              <td>2</td>
+              <td>Fabricio</td>
+              <td>Monte</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p>Auto instance, use the parameter, the table object: <code>data-lol-datatable="true"</code>.</p>
+      <p>For "context-menu" links (doubleclick, edit, show, delete), use parameters data, in each line:</p>
+      <ul>
+        <li>Doubleclick: <code>data-datatable-link="url"</code></li>
+        <li>Edit: <code>data-datatable-view-link="url"</code></li>
+        <li>Show: <code>data-datatable-edit-link="url"</code></li>
+        <li>Delete: <code>data-datatable-delete-link="url"</code></li>
+      </ul>
+      <div class="example">
+        <div class="title">
+          code
+        </div>
+        <div class="content">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#example-1-html" data-toggle="tab">Html</a></li>
+            <li><a href="#example-1-css" data-toggle="tab">Css default</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="example-1-html">
+              <pre class="prettyprint lang-html linenums"><%= %`<table id="lol-datatable" data-lol-datatable="true">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr
+  data-datatable-link="http://welington.zaez.net/"
+  data-datatable-edit-link="#edit_my_page_ws"
+  data-datatable-view-link="#view_my_page_ws"
+  data-datatable-delete-link="#delete_my_page_ws">
+    <td>1</td>
+    <td>Welington</td>
+    <td>Sampaio</td>
+  </tr>
+  <tr
+  data-datatable-link="http://fabricio.zaez.net/"
+  data-datatable-edit-link="#edit_my_page_fm"
+  data-datatable-view-link="#view_my_page_fm"
+  data-datatable-delete-link="#delete_my_page_fm">
+    <td>2</td>
+    <td>Fabricio</td>
+    <td>Monte</td>
+  </tr>
+  </tbody>
+</table>` %></pre>
+            </div>
+            <div class="tab-pane" id="example-1-css">
+              <pre class="prettyprint lang-css linenums">
+html.lol table.lol-datatable {
+  width: 100%;
+  margin-top: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+html.lol table.lol-datatable tr {
+  border-bottom: 1px solid #ebebeb;
+  border-top: 1px solid #fff;
+}
+html.lol table.lol-datatable tr td,
+html.lol table.lol-datatable tr th {
+  border-left: 1px solid #fff;
+  border-right: 1px solid #f4f4f4;
+  padding: 12px 14px;
+  position: relative;
+  text-align: left;
+}
+html.lol table.lol-datatable tr td:last-child,
+html.lol table.lol-datatable tr th:last-child {
+  border-right: none;
+}
+html.lol table.lol-datatable tr td:first-child,
+html.lol table.lol-datatable tr th:first-child {
+  border-left: none;
+}
+html.lol table.lol-datatable thead {
+  color: #898989;
+  font-size: 13px;
+  font-weight: bold;
+}
+html.lol table.lol-datatable thead tr {
+  border-top: none;
+}
+html.lol table.lol-datatable tbody tr:last-child {
+  border-bottom: none;
+}
+html.lol table.lol-datatable tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 3px;
+}
+html.lol table.lol-datatable tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 3px;
+}
+html.lol table.lol-datatable tbody tr:nth-child(odd) {
+  background: #fdfdfd;
+}
+html.lol table.lol-datatable tbody tr.active_row {
+  background-color: #4190e9;
+  color: white;
+}
+html.lol .context-menu {
+  display: block;
+  position: absolute;
+}
+html.lol .context-menu ul {
+  padding: 0;
+  margin: 10px;
+  display: block;
+}
+html.lol .context-menu ul li a i {
+  margin-right: 9px;
+}
+html.lol .dataTables_wrapper {
+  position: relative;
+}
+html.lol .dataTables_length {
+  display: none;
+}
+html.lol .dataTables_filter {
+  position: absolute;
+  right: 14px;
+  top: -28px;
+}
+html.lol .dataTables_filter i {
+  margin-top: -8px;
+}
+html.lol .dataTables_filter input {
+  background: none;
+  border: none;
+  border-radius: 2px;
+  color: #666;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: -13px;
+  -webkit-transition: width 0.3s linear;
+  -moz-transition: width 0.3s linear;
+  -o-transition: width 0.3s linear;
+  transition: width 0.3s linear;
+  width: 75px;
+}
+html.lol .dataTables_filter input:focus {
+  width: 150px;
+}
+html.lol .dataTables_filter input::-webkit-input-placeholder,
+html.lol .dataTables_filter input::-moz-placeholder {
+  color: #999;
+}
+html.lol .dataTables_info {
+  color: #949494;
+  display: inline;
+  font-size: 11px;
+  line-height: 30px;
+  text-shadow: 0 1px 0 #fff;
+}
+html.lol .dataTables_paginate {
+  float: right;
+  line-height: 30px;
+}
+html.lol .dataTables_paginate,
+html.lol .dataTables_paginate a {
+  color: #949494;
+  text-shadow: 0 1px 0 #fff;
+}
+html.lol .dataTables_paginate a {
+  cursor: pointer;
+  -webkit-transition: color 0.3s linear;
+  -moz-transition: color 0.3s linear;
+  -o-transition: color 0.3s linear;
+  transition: color 0.3s linear;
+  margin-right: 8px;
+}
+html.lol .dataTables_paginate a:last-child {
+  margin-right: 0;
+}
+html.lol .dataTables_paginate a:hover {
+  text-decoration: none;
+  color: #484848;
+}
+html.lol .dataTables_paginate .paginate_active {
+  color: #333;
+  padding: 0 5px;
+}
+html.lol .dataTables_paginate .paginate_button {
+  cursor: pointer;
+  display: inline-block;
+  *display: inline;
+  line-height: 30px;
+  padding: 0 5px;
+  margin: 0;
+  zoom: 1;
+}
+html.lol .dataTables_paginate .paginate_button:hover {
+  color: #666;
+}
+html.lol .dataTables_paginate .paginate_button_disabled {
+  display: none;
+}
+html.lol .sorting,
+html.lol .sorting_asc,
+html.lol .sorting_desc {
+  cursor: pointer;
+  position: relative;
+}
+html.lol .sorting .arrow,
+html.lol .sorting_asc .arrow,
+html.lol .sorting_desc .arrow {
+  width: 0;
+  height: 0;
+  display: none;
+  border: 5px solid transparent;
+  position: absolute;
+  right: 2px;
+  top: 50%;
+}
+html.lol .sorting_asc .arrow {
+  margin-top: -5px;
+  display: block;
+  border-top-color: none;
+  border-left-color: none;
+  border-right-color: none;
+  border-bottom-color: rgba(0, 0, 0, 0.35) !important;
+  -moz-border-bottom-colors: rgba(0, 0, 0, 0.35) !important;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+}
+html.lol .sorting_desc .arrow {
+  display: block;
+  border-top-color: rgba(0, 0, 0, 0.35) !important;
+  border-left-color: none;
+  border-right-color: none;
+  border-bottom-color: none;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: rgba(0, 0, 0, 0.35) !important;
+}</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <h4 id="search_field">Search field</h4>
+      <p>It is possible to modify all CSS styles, components. The same search field, you can change the way it works.
+        Below you can see the code generated by javascript and CSS standard that is used to style it.</p>
+      <div class="example">
+        <div class="title">
+          example
+        </div>
+        <div class="content">
+          <%= image_tag "datatable/search.png" %>
+        </div>
+      </div>
+      <div class="example">
+        <div class="title">
+          code
+        </div>
+        <div class="content">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#example-2-css" data-toggle="tab">Css default</a></li>
+            <li><a href="#example-2-html" data-toggle="tab">Html</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="example-2-css">
+              <pre class="prettyprint lang-css linenums">html.lol .dataTables_filter {
+  position: absolute;
+  right: 14px;
+  top: -28px;
+}
+html.lol .dataTables_filter i {
+  margin-top: -8px;
+}
+html.lol .dataTables_filter input {
+  background: none;
+  border: none;
+  border-radius: 2px;
+  color: #666;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: -13px;
+  -webkit-transition: width 0.3s linear;
+  -moz-transition: width 0.3s linear;
+  -o-transition: width 0.3s linear;
+  transition: width 0.3s linear;
+  width: 75px;
+}
+html.lol .dataTables_filter input:focus {
+  width: 150px;
+}
+html.lol .dataTables_filter input::-webkit-input-placeholder,
+html.lol .dataTables_filter input::-moz-placeholder {
+  color: #999;
+}</pre>
+            </div>
+            <div class="tab-pane" id="example-2-html">
+              <pre class="prettyprint lang-html linenums"><%= %`<div class="dataTables_filter" id="lol-datatable_filter">
+  <label>
+    <i class="icon-search"></i>
+    <input type="text" aria-controls="lol-datatable" placeholder="buscar">
+  </label>
+</div>` %></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <h4 id="sorting_button">Sorting button</h4>
+      <p>To modify how the sorting is shown just work with the background-image and positioning. Below the codes
+        generated for easy viewing.</p>
+      <p>It worked on element "th" style classes, as the following list:</p>
+      <ul>
+        <li>Not selected: <code>.sorting</code></li>
+        <li>Selected, ascending order: <code>.sorting_asc</code></li>
+        <li>Selected, descending order: <code>.sorting_desc</code></li>
+      </ul>
+      <p></p>
+      <div class="example">
+        <div class="title">
+          example
+        </div>
+        <div class="content">
+          <%= image_tag "datatable/sorting.png" %>
+        </div>
+      </div>
+      <div class="example">
+        <div class="title">
+          code
+        </div>
+        <div class="content">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#example-3-css" data-toggle="tab">Css default</a></li>
+            <li><a href="#example-3-html" data-toggle="tab">Html</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="example-3-css">
+              <pre class="prettyprint lang-css linenums">html.lol .sorting,
+html.lol .sorting_asc,
+html.lol .sorting_desc {
+  cursor: pointer;
+  position: relative;
+}
+html.lol .sorting .arrow,
+html.lol .sorting_asc .arrow,
+html.lol .sorting_desc .arrow {
+  width: 0;
+  height: 0;
+  display: none;
+  border: 5px solid transparent;
+  position: absolute;
+  right: 2px;
+  top: 50%;
+}
+html.lol .sorting_asc .arrow {
+  margin-top: -5px;
+  display: block;
+  border-top-color: none;
+  border-left-color: none;
+  border-right-color: none;
+  border-bottom-color: rgba(0, 0, 0, 0.35) !important;
+  -moz-border-bottom-colors: rgba(0, 0, 0, 0.35) !important;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+}
+html.lol .sorting_desc .arrow {
+  display: block;
+  border-top-color: rgba(0, 0, 0, 0.35) !important;
+  border-left-color: none;
+  border-right-color: none;
+  border-bottom-color: none;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: rgba(0, 0, 0, 0.35) !important;
+}</pre>
+            </div>
+            <div class="tab-pane" id="example-3-html">
+              <pre class="prettyprint lang-html linenums"><%= %`<th
+    class="sorting_asc"
+    role="columnheader"
+    tabindex="0"
+    aria-controls="lol-datatable"
+    rowspan="1"
+    colspan="1"
+    aria-sort="ascending"
+    aria-label="ID: activate to sort column descending"
+>
+  ID
+  <em class="arrow"></em>
+</th>` %></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <h4 id="display_count">Display count</h4>
+      <p>The display below the table is also generated by javascript, and can also be modified your CSS. The "div" with
+        the content gets the style class <code>.dataTables_info</code>. The generated content you can check out below.</p>
+      <div class="example">
+        <div class="title">
+          example
+        </div>
+        <div class="content">
+          <%= image_tag "datatable/display_count.png" %>
+        </div>
+      </div>
+      <div class="example">
+        <div class="title">
+          code
+        </div>
+        <div class="content">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#example-4-css" data-toggle="tab">Css default</a></li>
+            <li><a href="#example-4-html" data-toggle="tab">Html</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="example-4-css">
+              <pre class="prettyprint lang-css linenums">html.lol .dataTables_info {
+  color: #949494;
+  display: inline;
+  font-size: 11px;
+  line-height: 30px;
+  text-shadow: 0 1px 0 #fff;
+}</pre>
+            </div>
+            <div class="tab-pane" id="example-4-html">
+              <pre class="prettyprint lang-html linenums"><%= %`<div class="dataTables_info" id="lol-datatable_info">
+  Showing 1 to 2 of 2 entries
+</div>` %></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <h4 id="navigation">Navigation</h4>
+      <p>The tracer pages of table generated by javascript, is a "div" receiving style class <code>.dataTables_paginate</code>
+        . Cofira below the generated html and style standard.</p>
+      <div class="example">
+        <div class="title">
+          example
+        </div>
+        <div class="content">
+          <%= image_tag "datatable/navigation.png" %>
+        </div>
+      </div>
+      <div class="example">
+        <div class="title">
+          code
+        </div>
+        <div class="content">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#example-5-css" data-toggle="tab">Css default</a></li>
+            <li><a href="#example-5-html" data-toggle="tab">Html</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="example-5-css">
+              <pre class="prettyprint lang-css linenums">html.lol .dataTables_paginate {
+  float: right;
+  line-height: 30px;
+}
+html.lol .dataTables_paginate,
+html.lol .dataTables_paginate a {
+  color: #949494;
+  text-shadow: 0 1px 0 #fff;
+}
+html.lol .dataTables_paginate a {
+  cursor: pointer;
+  -webkit-transition: color 0.3s linear;
+  -moz-transition: color 0.3s linear;
+  -o-transition: color 0.3s linear;
+  transition: color 0.3s linear;
+  margin-right: 8px;
+}
+html.lol .dataTables_paginate a:last-child {
+  margin-right: 0;
+}
+html.lol .dataTables_paginate a:hover {
+  text-decoration: none;
+  color: #484848;
+}
+html.lol .dataTables_paginate .paginate_active {
+  color: #333;
+  padding: 0 5px;
+}
+html.lol .dataTables_paginate .paginate_button {
+  cursor: pointer;
+  display: inline-block;
+  *display: inline;
+  line-height: 30px;
+  padding: 0 5px;
+  margin: 0;
+  zoom: 1;
+}
+html.lol .dataTables_paginate .paginate_button:hover {
+  color: #666;
+}
+html.lol .dataTables_paginate .paginate_button_disabled {
+  display: none;
+}</pre>
+            </div>
+            <div class="tab-pane" id="example-5-html">
+              <pre class="prettyprint lang-html linenums"><%= %`<div class="dataTables_paginate paging_two_button" id="lol-datatable_paginate">
+  <a
+  class="paginate_disabled_previous"
+  tabindex="0"
+  role="button"
+  id="lol-datatable_previous"
+  aria-controls="lol-datatable">
+    Previous</a>
+  <a
+  class="paginate_disabled_next"
+  tabindex="0"
+  role="button"
+  id="lol-datatable_next"
+  aria-controls="lol-datatable">
+    Next</a>
+</div>` %></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <h4 id="contextmenu">Context Menu</h4>
+      <p>Clicking with the right mouse button on the line of the table, you'll see a menu with options, this menu takes
+        classes <code>.dropdown .context-menu</code>. The contents Html and CSS you can see below.</p>
+      <p>Class. "Dropdown" is an object of the bootstrap, see the Documentation Bootstrap (<%=
+          link_to :link, "http://twitter.github.com/bootstrap", target: :_blank %>).</p>
+      <div class="example">
+        <div class="title">
+          example
+        </div>
+        <div class="content">
+          <%= image_tag "datatable/context-menu.png" %>
+        </div>
+      </div>
+      <div class="example">
+        <div class="title">
+          code
+        </div>
+        <div class="content">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#example-6-css" data-toggle="tab">Css default</a></li>
+            <li><a href="#example-6-html" data-toggle="tab">Html</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="example-6-css">
+              <pre class="prettyprint lang-css linenums">html.lol .context-menu {
+  display: block;
+  position: absolute;
+}
+html.lol .context-menu ul {
+  padding: 0;
+  margin: 10px;
+  display: block;
+}
+html.lol .context-menu ul li a i {
+  margin-right: 9px;
+}</pre>
+            </div>
+            <div class="tab-pane" id="example-6-html">
+              <pre class="prettyprint lang-html linenums"><%= %`<div class="dropdown context-menu" id="context-menu-{number}">
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+    <li>
+      <a tabindex="-1" href="#view_my_page_ws">
+        <i class="icon-eye-open"></i>
+        view
+      </a>
+    </li>
+    <li>
+      <a tabindex="-1" href="#edit_my_page_ws">
+        <i class=" icon-edit"></i>
+        edit
+      </a>
+    </li>
+    <li>
+      <a tabindex="-1" href="#delete_my_page_ws">
+        <i class="icon-remove"></i>
+        delete
+      </a>
+    </li>
+  </ul>
+</div>` %></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html class="lol">
+<head>
+  <title>LolFramework</title>
+  <%= stylesheet_link_tag    "jasmine", :media => "all" %>
+  <%= javascript_include_tag "application", "lol_main" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+<%= yield :footer %>
+</body>
+</html>

@@ -1,0 +1,42 @@
+##---- template for example box
+
+<div class="example">
+  <div class="title">
+    example
+  </div>
+  <div class="content">
+  </div>
+  <%= content_for :footer do %>
+    <script type="text/javascript">
+      jQuery(document).ready(function(){
+      });
+    </script>
+  <% end %>
+</div>
+
+
+##---- template for code box
+
+<div class="example">
+  <div class="title">
+    code
+  </div>
+  <div class="content">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#example-1-html" data-toggle="tab">Html</a></li>
+      <li><a href="#example-1-css" data-toggle="tab">Css default</a></li>
+      <li><a href="#example-1-js" data-toggle="tab">JS</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="example-1-html">
+        <pre class="prettyprint lang-html linenums"><%= %`` %></pre>
+      </div>
+      <div class="tab-pane" id="example-1-css">
+        <pre class="prettyprint lang-css linenums"></pre>
+      </div>
+      <div class="tab-pane" id="example-1-js">
+        <pre class="prettyprint lang-js linenums"><%= %`` %></pre>
+      </div>
+    </div>
+  </div>
+</div>

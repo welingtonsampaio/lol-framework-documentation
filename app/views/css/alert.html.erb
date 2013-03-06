@@ -1,0 +1,116 @@
+<div class="alerts" id="alerts"></div>
+<div class="row">
+  <div class="span10 offset1">
+    <div class="box">
+      <h2>Css - Alerts</h2>
+      <p>The Alert object, the LolFramework, you need a div with the class <code>.alerts</code> and id <code>#alerts</code>,
+        to work as standard. Also can be customized in the passage of the parameters. As can be seen in the documentation
+        JS (<%= link_to :link, js_alert_path %>).</p>
+
+      <div class="example">
+        <div class="title">
+          example
+        </div>
+        <div class="content">
+          <button class="btn btn-success" id="alert-success">sucess</button>
+          <button class="btn btn-danger" id="alert-error">error</button>
+          <button class="btn btn-warning" id="alert-warning">warning</button>
+          <button class="btn btn-info" id="alert-info">info</button>
+        </div>
+<%= content_for :footer do %>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+      $("#alert-success").click(function(){
+        new Lol.Alert({
+          message    : 'Success to create a new object LolAlert'
+        });
+      });
+      $("#alert-error").click(function(){
+        new Lol.Alert({
+          type       : 'error',
+          message    : 'Error to create a new object LolAlert'
+        });
+      });
+      $("#alert-warning").click(function(){
+        new Lol.Alert({
+          type       : 'warning',
+          message    : 'Warning to create a new object LolAlert'
+        });
+      });
+      $("#alert-info").click(function(){
+        new Lol.Alert({
+          type       : 'info',
+          message    : 'Info to create a new object LolAlert'
+        });
+      });
+    });
+  </script>
+<% end %>
+      </div>
+      <div class="example">
+        <div class="title">
+          code
+        </div>
+        <div class="content">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#example-1-html" data-toggle="tab">Html</a></li>
+            <li><a href="#example-1-css" data-toggle="tab">Css default</a></li>
+            <li><a href="#example-1-js" data-toggle="tab">Js</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="example-1-html">
+              <pre class="prettyprint lang-html linenums"><%= %`<div class="alerts" id="alerts"></div>
+<button class="btn btn-success" id="alert-success">sucess</button>
+<button class="btn btn-danger" id="alert-error">error</button>
+<button class="btn btn-warning" id="alert-warning">warning</button>
+<button class="btn btn-info" id="alert-info">info</button>` %></pre>
+            </div>
+            <div class="tab-pane" id="example-1-css">
+              <pre class="prettyprint lang-css linenums">html.lol .alerts {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1040;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}</pre>
+            </div>
+            <div class="tab-pane" id="example-1-js">
+              <pre class="prettyprint lang-js linenums"><%= %`
+  jQuery(document).ready(function(){
+    $("#alert-success").click(function(){
+      new Lol.Alert({
+        message    : 'Success to create a new object LolAlert'
+      });
+    });
+    $("#alert-error").click(function(){
+      new Lol.Alert({
+        type       : 'error',
+        message    : 'Error to create a new object LolAlert'
+      });
+    });
+    $("#alert-warning").click(function(){
+      new Lol.Alert({
+        type       : 'warning',
+        message    : 'Warning to create a new object LolAlert'
+      });
+    });
+    $("#alert-info").click(function(){
+      new Lol.Alert({
+        type       : 'info',
+        message    : 'Info to create a new object LolAlert'
+      });
+    });
+  });
+` %></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
