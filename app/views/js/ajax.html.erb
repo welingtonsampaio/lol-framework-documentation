@@ -3,8 +3,8 @@
   <div class="span10 offset1">
     <div class="box">
       <h2>Js - Ajax</h2>
-      <p>O objeto de "Ajax" visa facilitar a forma de fazer uma requiscão "ajax". Utiliza os recursos do jQuery, ja
-      implementado o "csrf-token" para requisicoes dentro de aplicacões rails. Veja examplo a seguir:`</p>
+      <p>The object of "Ajax" aims to make it easier to make a request "ajax". Uses the resources of jQuery, already
+        implemented the "csrf-token" to requests within Rails applications. See example set out below:</p>
 
       <div class="example">
         <div class="title">
@@ -100,30 +100,88 @@
     success:    function(data, textStatus, jqXHR){}
   }
 });` %></pre>
-      <ul>
-        <li><code>autoExecute</code>: Informa se deve ser disparado a requisicão na instanciacao do objeto. (<code>booblean</code> |
-          Default <code>true</code>)</li>
-        <li><code>useLoader</code>: Informa se deve se usar o loader enquanto nao termina a requisicao ajax. (<code>booblean</code> |
-          Default: <code>true</code>)</li>
-        <li><code>contentType</code>: Define qual o tipo de conteudo será enviado. (<code>String</code> | Default:
-          <code>"application/x-www-form-urlencoded; charset=UTF-8"</code>)</li>
-        <li><code>url</code>: Caminho da url da requisicão. (<code>String</code> | Default: <code>null</code>)</li>
-        <li><code>method</code>: Define o método utilizado na requisicão. (<code>String</code> | Default: <code>"GET"</code>
-          | Options: <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code> )</li>
-        <li><code>data</code>: Dados que deverão ser enviados junto com a requisicão. (<code>Object</code> | Default:
-          <code>{}</code> )</li>
-        <li><code>dataType</code>: Define qual o conteudo do retorno. (<code>String</code> | Default: <code>"json"</code> |
-          Options: <code>html</code>, <code>json</code>, <code>js</code>, <code>xml</code> )</li>
-        <li>
-          <code>callbacks</code>: ( <code>Object</code> )
-          <ul>
-            <li><code>beforeSend</code>: Funcão </li>
-            <li><code>complete</code>: </li>
-            <li><code>error</code>: </li>
-            <li><code>success</code>: </li>
-          </ul>
-        </li>
-      </ul>
+      <blockquote>
+        <strong>autoExecute</strong> (<code>Boolean</code> | Default: <code>true</code>)
+        <p>Reports whether the request should be fired on object instantiation.</p>
+      </blockquote>
+
+      <blockquote>
+        <strong>useLoader</strong> (<code>Boolean</code> | Default: <code>true</code>)
+        <p>Tells whether to use the loader while not ending the Ajax request.</p>
+      </blockquote>
+
+      <blockquote>
+        <strong>contentType</strong> (<code>String</code> | Default: <code>"application/x-www-form-urlencoded; charset=UTF-8"</code>)
+        <p>Defines what type of content is sent.</p>
+      </blockquote>
+
+      <blockquote>
+        <strong>url</strong> (<code>String</code> | Default: <code>null</code>)
+        <p>Path of the request URL.</p>
+      </blockquote>
+
+      <blockquote>
+        <strong>method</strong> (<code>String</code> | Default: <code>"GET"</code> | Options: <code>GET</code>,
+        <code>POST</code>, <code>PUT</code>, <code>DELETE</code> )
+        <p>Sets the method used in the request.</p>
+      </blockquote>
+
+      <blockquote>
+        <strong>method</strong> (<code>String</code> | Default: <code>"GET"</code> | Options: <code>GET</code>,
+        <code>POST</code>, <code>PUT</code>, <code>DELETE</code> )
+        <p>Sets the method used in the request.</p>
+      </blockquote>
+
+      <blockquote>
+        <strong>data</strong> (<code>Object</code> | Default: <code>{}</code> )
+        <p>Data to be sent to the server. It is converted to a query string. It's appended to the url for requests.</p>
+      </blockquote>
+
+      <blockquote>
+        <strong>dataType</strong> (<code>String</code> | Default: <code>"json"</code> | Options: <code>html</code>,
+        <code>json</code>, <code>jsonp</code>, <code>script</code>, <code>xml</code> )
+        <p>The type of data that you're expecting back from the server.</p>
+      </blockquote>
+
+      <blockquote>
+        <strong>callbacks</strong> (<code>Object</code>)
+
+        <blockquote>
+          <strong>beforeSend</strong> (<code>Function</code> | Parameters: <code>jqXHR -> jqXHR</code>, <code>Object ->
+        settings</code> )
+          <p>A pre-request callback function that can be used to modify the jqXHR object before it is sent. Use this to
+            set custom headers, etc. The jqXHR and settings objects are passed as arguments. This is an Ajax Event.
+            Returning false in the beforeSend function will cancel the request.</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>complete</strong> (<code>Function</code> | Parameters: <code>jqXHR -> jqXHR</code>, <code>String ->
+          textStatus</code> )
+          <p>A function to be called when the request finishes (after success and error callbacks are executed). The
+            function gets passed two arguments: The jqXHR  object and a string categorizing the status of the request
+            ("success", "notmodified", "error", "timeout", "abort", or "parsererror").</p>
+        </blockquote>
+
+
+        <blockquote>
+          <strong>error</strong> (<code>Function</code> | Parameters: <code>jqXHR -> jqXHR</code>, <code>String ->
+          textStatus</code>, <code>String -> errorThrown</code> )
+          <p>A function to be called if the request fails. The function receives three arguments: The jqXHR object, a
+            string describing the type of error that occurred and an optional exception object, if one occurred.
+            Possible values for the second argument (besides null) are "timeout", "error", "abort", and "parsererror".
+            When an HTTP error occurs, errorThrown receives the textual portion of the HTTP status, such as "Not Found"
+            or "Internal Server Error."</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>success</strong> (<code>Function</code> | Parameters: <code>PlainObject -> data</code>, <code>String ->
+          textStatus</code>, <code>jqXHR -> jqXHR</code>)
+          <p>A function to be called if the request succeeds. The function gets passed three arguments: The data
+            returned from the server, formatted according to the dataType parameter; a string describing the status;
+            and the jqXHR object.</p>
+        </blockquote>
+      </blockquote>
+
       <hr />
       <h4 id="methods">Methods</h4>
       <p>asdasda asd asdasd sg bdoasbclsahc yviasyvgcs</p>
