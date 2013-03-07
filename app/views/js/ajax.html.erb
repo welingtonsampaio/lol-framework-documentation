@@ -1,1 +1,141 @@
-<div class="text-center">-- in construction --</div>
+<div id="alerts" class="alerts"></div>
+<div class="row">
+  <div class="span10 offset1">
+    <div class="box">
+      <h2>Js - Ajax</h2>
+      <p>O objeto de "Ajax" visa facilitar a forma de fazer uma requiscão "ajax". Utiliza os recursos do jQuery, ja
+      implementado o "csrf-token" para requisicoes dentro de aplicacões rails. Veja examplo a seguir:`</p>
+
+      <div class="example">
+        <div class="title">
+          example
+        </div>
+        <div class="content">
+          <button class="btn" id="btn_ajax">Get content by ajax</button>
+          <div id="content_ajax"></div>
+        </div>
+        <%= content_for :footer do %>
+          <script type="text/javascript">
+            jQuery(document).ready(function(){
+              jQuery("#btn_ajax").click(function(){
+                var lol_ajax;
+                lol_ajax = new Lol.Ajax({
+                  url        : '/content.html',
+                  method     : 'GET',
+                  dataType   : 'html',
+                  callbacks: {
+                    error:      function(jqXHR, textStatus, errorThrown){
+                      new Lol.Alert({
+                        type:    'error',
+                        message: "<strong>Status:</strong> "+jqXHR.status+" | <strong>Text:</strong> " + jqXHR.statusText
+                      });
+                    },
+                    success:    function(data, textStatus, jqXHR){
+                      jQuery("#content_ajax").html(jqXHR.responseText);
+                    }
+                  }
+                });
+              });
+            });
+          </script>
+        <% end %>
+      </div>
+
+      <div class="example">
+        <div class="title">
+          code
+        </div>
+        <div class="content">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#example-1-html" data-toggle="tab">Html</a></li>
+            <li><a href="#example-1-js" data-toggle="tab">JS</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="example-1-html">
+              <pre class="prettyprint lang-html linenums"><%= %`<button class="btn" id="btn_ajax">Get content by ajax</button>
+<div id="content_ajax"></div>` %></pre>
+            </div>
+            <div class="tab-pane" id="example-1-js">
+              <pre class="prettyprint lang-js linenums"><%= %`jQuery(document).ready(function(){
+  jQuery("#btn_ajax").click(function(){
+    var lol_ajax;
+    lol_ajax = new Lol.Ajax({
+      url        : '/content.html',
+      method     : 'GET',
+      dataType   : 'html',
+      callbacks: {
+        error:      function(jqXHR, textStatus, errorThrown){
+          new Lol.Alert({
+            type:    'error',
+            message: "<strong>Status:</strong> "+jqXHR.status+
+            " | <strong>Text:</strong> " + jqXHR.statusText
+          });
+        },
+        success:    function(data, textStatus, jqXHR){
+          jQuery("#content_ajax").html(jqXHR.responseText);
+        }
+      }
+    });
+  });
+});` %></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <h4 id="all_configurations">All configurations</h4>
+      <p></p>
+      <pre class="prettyprint lang-js linenums"><%= %`var lol_ajax = new Lol.Ajax({
+  autoExecute: true,
+  useLoader  : true,
+  contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+  url        : 'http://www.google.com/',
+  method     : 'GET',
+  data       : {},
+  dataType   : 'html',
+  callbacks: {
+    beforeSend: function(jqXHR, settings){},
+    complete:   function(jqXHR, textStatus){},
+    error:      function(jqXHR, textStatus, errorThrown){},
+    success:    function(data, textStatus, jqXHR){}
+  }
+});` %></pre>
+      <ul>
+        <li><code>autoExecute</code>: Informa se deve ser disparado a requisicão na instanciacao do objeto. (<code>booblean</code> |
+          Default <code>true</code>)</li>
+        <li><code>useLoader</code>: Informa se deve se usar o loader enquanto nao termina a requisicao ajax. (<code>booblean</code> |
+          Default: <code>true</code>)</li>
+        <li><code>contentType</code>: Define qual o tipo de conteudo será enviado. (<code>String</code> | Default:
+          <code>"application/x-www-form-urlencoded; charset=UTF-8"</code>)</li>
+        <li><code>url</code>: Caminho da url da requisicão. (<code>String</code> | Default: <code>null</code>)</li>
+        <li><code>method</code>: Define o método utilizado na requisicão. (<code>String</code> | Default: <code>"GET"</code>
+          | Options: <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code> )</li>
+        <li><code>data</code>: Dados que deverão ser enviados junto com a requisicão. (<code>Object</code> | Default:
+          <code>{}</code> )</li>
+        <li><code>dataType</code>: Define qual o conteudo do retorno. (<code>String</code> | Default: <code>"json"</code> |
+          Options: <code>html</code>, <code>json</code>, <code>js</code>, <code>xml</code> )</li>
+        <li>
+          <code>callbacks</code>: ( <code>Object</code> )
+          <ul>
+            <li><code>beforeSend</code>: Funcão </li>
+            <li><code>complete</code>: </li>
+            <li><code>error</code>: </li>
+            <li><code>success</code>: </li>
+          </ul>
+        </li>
+      </ul>
+      <hr />
+      <h4 id="methods">Methods</h4>
+      <p>asdasda asd asdasd sg bdoasbclsahc yviasyvgcs</p>
+      <ul>
+        <li>execute</li>
+        <li>setContentType</li>
+        <li>setUseLoader</li>
+        <li>setUrl</li>
+        <li>setMethod</li>
+        <li>setData</li>
+        <li>setDataType</li>
+      </ul>
+    </div>
+  </div>
+</div>
