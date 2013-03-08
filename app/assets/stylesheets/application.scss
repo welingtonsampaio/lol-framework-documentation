@@ -6,9 +6,37 @@
 //= require_self
 @import "_mixin";
 
+@font-face {
+  font-family: 'BauhausStd-Bold';
+  src: url('/assets/fonts/BauhausStd-Bold.eot');
+  src: url('/assets/fonts/BauhausStd-Bold.svg#BauhausStd-Bold') format('svg');
+}
+@font-face {
+  font-family: 'BauhausStd-Demi';
+  src: url('/assets/fonts/BauhausStd-Demi.eot');
+  src: url('/assets/fonts/BauhausStd-Demi.svg#BauhausStd-Demi') format('svg');
+}
+@font-face {
+  font-family: 'BauhausStd-Heavy';
+  src: url('/assets/fonts/BauhausStd-Heavy.eot');
+  src: url('/assets/fonts/BauhausStd-Heavy.svg#BauhausStd-Heavy') format('svg');
+}
+@font-face {
+  font-family: 'BauhausStd-Light';
+  src: url('/assets/fonts/BauhausStd-Light.eot');
+  src: url('/assets/fonts/BauhausStd-Light.svg#BauhausStd-Light') format('svg');
+}
+@font-face {
+  font-family: 'BauhausStd-Medium';
+  src: url('/assets/fonts/BauhausStd-Medium.eot');
+  src: url('/assets/fonts/BauhausStd-Medium.svg#BauhausStd-Medium') format('svg');
+}
+
 body > .container {
   padding-top: 60px;
 }
+
+@import "header";
 nav {
   position: fixed;
   width: 100%;
