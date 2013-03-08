@@ -1,50 +1,24 @@
-</div>
-<style>
-  header.index {
-    position: relative;
-    padding: 40px 0;
-    color:
-      #fff;
-    text-align: center;
-    text-shadow: 0 1px 3px
-    rgba(0,0,0,.4), 0 0 30px
-    rgba(0,0,0,.075);
-    background: #253238;
-    background: -moz-linear-gradient(45deg, #253238 0%, #4a7386 100%);
-    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #253238), color-stop(100%, #4a7386));
-    background: -webkit-linear-gradient(45deg, #253238 0%, #4a7386 100%);
-    background: -o-linear-gradient(45deg, #253238 0%, #4a7386 100%);
-    background: -ms-linear-gradient(45deg, #253238 0%, #4a7386 100%);
-    background: linear-gradient(45deg, #253238 0%, #4a7386 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#020031', endColorstr='#6d3353',GradientType=1 );
-    -webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
-    -moz-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
-    box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset;
-    margin-top: -25px;
-  }
-  header.index > div.patterns {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: url('/assets/patterns.png') center center;
-    z-index: 9;
-  }
-  header.index > div.title {
-    position: relative;
-
-    z-index: 50;
-  }
-</style>
-<header class="index">
+<header>
   <div class="patterns"></div>
-  <div class="title">
-    <h1 style="font-size: 90px; font-family: 'BauhausStd-Medium';padding: 30px 0; line-height: 80px;" class="text-center">lol framework</h1>
-    <div class="container">
+  <div class="content">
+    <h1>lol framework</h1>
+    <div class="container information">
       <div class="row">
         <div class="span8 offset2">
-          <p style="font-size: 18px; font-family: 'BauhausStd-Light';">Framework for frontend for developing RIAs. Using concepts of REST applications, primarily developed to work seamlessly with applications RAILS.  As its name says, to develop Lol is fun.</p>
+          <p>Framework for frontend for developing RIAs. Using concepts of REST applications, primarily developed to
+            work seamlessly with applications RAILS.  As its name says, to develop Lol is fun.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span8 offset2">
+          <ul class="inline">
+            <li>
+              <%= link_to "Download Lol Framework", download_path, class: "btn btn-large" %>
+            </li>
+          </ul>
+          <ul class="inline">
+            <li>version <%= LolFramework::VERSION %></li>
+          </ul>
         </div>
       </div>
     </div>

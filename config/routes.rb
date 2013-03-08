@@ -2,7 +2,6 @@ LolFramework::Application.routes.draw do
 
   root :to => 'pages#index'
 
-  get "get-started" => "pages#started", as: :page_get_started
 
 
   get "css/bootstrap" => "css#bootstrap", as: :css_bootstrap
@@ -31,4 +30,6 @@ LolFramework::Application.routes.draw do
   # pages
   get "pages/teste"
   get "license" => "pages#license", as: :license
+  get "download" => "pages#download", as: :download
+  get "get-started" => "pages#started", as: :page_get_started
 end

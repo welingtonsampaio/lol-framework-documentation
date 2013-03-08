@@ -1,1 +1,222 @@
-<div class="text-center">-- in construction --</div>
+<header class="page">
+  <div class="patterns"></div>
+  <div class="container content">
+    <div class="row">
+      <div class="span10 offset1">
+        <h4>Js - Alerts</h4>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container container-box">
+  <div class="row">
+    <div class="span10 offset1">
+      <div class="box">
+        <p>Lol Framework accompanies an automated system for generating alert messages, taking three of four distinct
+          style. Being: <code>success</code>, <code>error</code>, <code>info</code> and <code>warning</code>. To see the
+          style of each check the documentation for the css <%= link_to :link, css_alert_path %>. Below you can see a
+          simple example of use.</p>
+
+        <div class="example">
+          <div class="title">
+            example
+          </div>
+          <div class="content">
+            <div class="alerts" id="alerts"></div>
+            <button class="btn" id="alert">show alert</button>
+          </div>
+          <%= content_for :footer do %>
+            <script type="text/javascript">
+              jQuery(document).ready(function(){
+                $("#alert").click(function(){
+                  new Lol.Alert({
+                    message    : '<strong>Example</strong> of alert message.'
+                  });
+                });
+              });
+            </script>
+          <% end %>
+        </div>
+
+        <div class="example">
+          <div class="title">
+            code
+          </div>
+          <div class="content">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#example-1-html" data-toggle="tab">Html</a></li>
+              <li><a href="#example-1-js" data-toggle="tab">JS</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="example-1-html">
+                      <pre class="prettyprint lang-html linenums"><%= %`<div class="alerts" id="alerts"></div>
+<button class="btn" id="alert">show alert</button>` %></pre>
+              </div>
+              <div class="tab-pane" id="example-1-js">
+                      <pre class="prettyprint lang-js linenums"><%= %`jQuery(document).ready(function(){
+  $("#alert").click(function(){
+    new Lol.Alert({
+      message    : '<strong>Example</strong> of alert message.'
+    });
+  });
+});` %></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <h4 id="all_configurations">All configurations</h4>
+        <p></p>
+      <pre class="prettyprint lang-js linenums"><%= %`var lol_alert;
+lol_alert = new Lol.Alert({
+  debug      : false,
+  autoRemove : true,
+  type       : 'success',
+  message    : 'Success to create a new object LolAlert',
+  delayRemove: 7000,
+  objects : {
+    containerID: '#alerts',
+    classes: {
+      container: 'alerts',
+      success  : 'alert-success',
+      error    : 'alert-error',
+      warning  : 'alert-warning',
+      info     : 'alert-info'
+    }
+  }
+});` %></pre>
+        <blockquote>
+          <strong>debug</strong> (<code>Boolean</code> | Default: <code>false</code>)
+          <p>Sets whether to print debug messages, such as sequences of plays and creations, to facilitate the extension
+           of the code and bug fixes.</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>autoRemove</strong> (<code>Boolean</code> | Default: <code>true</code>)
+          <p>Sets should be removed automatically if the object on the screen after the time display.</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>type</strong> (<code>String</code> | Default: <code>success</code> | Options: <code>success</code>,
+          <code>error</code>, <code>warning</code> e <code>info</code>)
+          <p>Defines what will be the style of the alert message. Click <%= link_to :here, css_alert_path %> to see the
+            full styles.</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>message</strong> (<code>String</code> | Default: <code>null</code>)
+          <p>Sets the message that will be shown on the display of alert.</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>delayRemove</strong> (<code>Integer</code> | Default: <code>7000</code>)
+          <p>Time display alert message until it is removed automatically. This should be a value in the integer type,
+            done in milliseconds.</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>objects</strong> (<code>Object</code>)
+          <p>Object that contains the display containers.</p>
+
+          <blockquote>
+            <strong>containerID</strong> (<code>String</code> | Default: <code>#alerts</code>)
+            <p>Defines the selector for the parent container element alert.</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>classes</strong> (<code>Object</code>)
+            <p>Object that contains the styles implemented in each type of alert and the parent container.</p>
+
+            <blockquote>
+              <strong>container</strong> (<code>String</code> | Default: <code>alerts</code>)
+              <p>Style classes of the parent element.</p>
+            </blockquote>
+
+            <blockquote>
+              <strong>success</strong> (<code>String</code> | Default: <code>alert-success</code>)
+              <p>Classes alert style element of success.</p>
+            </blockquote>
+
+            <blockquote>
+              <strong>error</strong> (<code>String</code> | Default: <code>alert-error</code>)
+              <p>Classes alert style element of error.</p>
+            </blockquote>
+
+            <blockquote>
+              <strong>warning</strong> (<code>String</code> | Default: <code>alert-warning</code>)
+              <p>Classes alert style element of warning.</p>
+            </blockquote>
+
+            <blockquote>
+              <strong>info</strong> (<code>String</code> | Default: <code>alert-info</code>)
+              <p>Classes alert style element of info.</p>
+            </blockquote>
+          </blockquote>
+        </blockquote>
+
+        <hr />
+        <h4 id="methods">Methods</h4>
+        <p>Is possible create an alert and run some methods of view control. Such as show / hide the alert. Below you
+          can see examples of how to use them.</p>
+
+        <pre class="prettyprint lang-js linenums"><%= %`var xhr;
+xhr = new Lol.Ajax({autoExecute: false});` %></pre>
+        <blockquote>
+          <strong>destroy</strong> ( Returns: <code>Boolean</code> )
+          <p>The object of alert can be removed in three ways, namely: automatic removal by exhibiting time by clicking
+            on the close button inside the element alert and javascript code. Below is the javascript code to for
+            removal.</p>
+          <blockquote>
+          <pre class="prettyprint linenums lang-js"><%= %`var alert, alertResponse;
+alert = new Lol.Alert({
+  autoRemove: false,
+  message   : "create a new object LolAlert"
+});
+alertResponse = alert.destroy();` %></pre>
+          </blockquote>
+        </blockquote>
+
+        <blockquote>
+          <strong>createAlert</strong> ( Returns: <code>Array of DOMElement (jQuery)</code> )
+          <p>If the object placed on alert as a possible variable is put it back in the "Stage" again using the method
+            createAlert.</p>
+
+          <blockquote>
+          <pre class="prettyprint linenums lang-js"><%= %`var alert, alertResponse;
+alert = new Lol.Alert({
+  autoRemove: false,
+  message   : "create a new object LolAlert"
+});
+alertResponse = alert.destroy();
+alert.createAlert()` %></pre>
+          </blockquote>
+        </blockquote>
+
+        <hr />
+        <h4 id="change_defaults">Change Default Configuration</h4>
+        <p>The class "Alert" allows you to set a new standard configuration model. Below you can see the content standard
+          and how it is configured.</p>
+
+        <pre class="prettyprint linenums lang-js"><%= %`Lol.alert = {
+  defaults: {
+    debug: false,
+    autoRemove: true,
+    type: 'success',
+    message: null,
+    delayRemove: 7000,
+    objects: {
+      containerID: '#alerts',
+      classes: {
+        container: 'alerts',
+        success: 'alert-success',
+        error: 'alert-error',
+        warning: 'alert-warning',
+        info: 'alert-info'
+      }
+    }
+  }
+};` %></pre>
+      </div>
+    </div>
+  </div>
+</div>

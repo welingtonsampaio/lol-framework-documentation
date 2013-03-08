@@ -1,8 +1,18 @@
+<header class="page">
+  <div class="patterns"></div>
+  <div class="container content">
+    <div class="row">
+      <div class="span10 offset1">
+        <h4>Js - Ajax</h4>
+      </div>
+    </div>
+  </div>
+</header>
 <div id="alerts" class="alerts"></div>
+<div class="container container-box">
 <div class="row">
   <div class="span10 offset1">
     <div class="box">
-      <h2>Js - Ajax</h2>
       <p>The object of "Ajax" aims to make it easier to make a request "ajax". Uses the resources of jQuery, already
         implemented the "csrf-token" to requests within Rails applications. See example set out below:</p>
 
@@ -178,20 +188,156 @@
 
       <hr />
       <h4 id="methods">Methods</h4>
-      <p>asdasda asd asdasd sg bdoasbclsahc yviasyvgcs</p>
+      <p>You can create an object "Ajax" and configure it later. See the example below see the methods available for
+        configuring and running.</p>
 
       <pre class="prettyprint lang-js linenums"><%= %`var xhr;
-xhr = new Lol.Ajax({autoExecute: false})` %></pre>
+xhr = new Lol.Ajax({autoExecute: false});` %></pre>
 
-      <ul>
-        <li>execute</li>
-        <li>setContentType</li>
-        <li>setUseLoader</li>
-        <li>setUrl</li>
-        <li>setMethod</li>
-        <li>setData</li>
-        <li>setDataType</li>
-      </ul>
+      <blockquote>
+        <strong>setContentType</strong> ( Receive: <code>String</code> | Returns: <code>String</code> )
+        <p>Defines what type of content is sent.</p>
+
+        <blockquote>
+          <pre class="prettyprint linenums lang-js"><%= %`var xhr;
+xhr = new Lol.Ajax({autoExecute: false});
+xhr.setContentType("application/x-www-form-urlencoded; charset=UTF-8");` %></pre>
+        </blockquote>
+      </blockquote>
+
+      <blockquote>
+        <strong>setUseLoader</strong> ( Receive: <code>Boolean</code> | Returns: <code>Boolean</code> )
+        <p>Tells whether to use the loader while not ending the Ajax request.</p>
+
+        <blockquote>
+          <pre class="prettyprint linenums lang-js"><%= %`var xhr;
+xhr = new Lol.Ajax({autoExecute: false});
+xhr.setUseLoader(false);` %></pre>
+        </blockquote>
+      </blockquote>
+
+      <blockquote>
+        <strong>setUrl</strong> ( Receive: <code>String</code> | Returns: <code>String</code> )
+        <p>Path of the request URL.</p>
+
+        <blockquote>
+          <pre class="prettyprint linenums lang-js"><%= %`var xhr;
+xhr = new Lol.Ajax({autoExecute: false});
+xhr.setUrl("http://www.google.com/");` %></pre>
+        </blockquote>
+      </blockquote>
+
+      <blockquote>
+        <strong>setMethod</strong> ( Receive: <code>String</code> | Returns: <code>String</code> | Options: <code>GET</code>,
+        <code>POST</code>, <code>PUT</code>, <code>DELETE</code> )
+        <p>Sets the method used in the request.</p>
+
+        <blockquote>
+          <pre class="prettyprint linenums lang-js"><%= %`var xhr;
+xhr = new Lol.Ajax({autoExecute: false});
+xhr.setMethod("POST");` %></pre>
+        </blockquote>
+      </blockquote>
+
+      <blockquote>
+        <strong>setData</strong> ( Receive: <code>Object</code> | Returns: <code>Object</code> )
+        <p>Data to be sent to the server. It is converted to a query string. It's appended to the url for requests.</p>
+
+        <blockquote>
+          <pre class="prettyprint linenums lang-js"><%= %`var xhr;
+xhr = new Lol.Ajax({autoExecute: false});
+xhr.setData({
+  first_name: "Welington",
+  last_name: "Sampaio"
+});` %></pre>
+        </blockquote>
+      </blockquote>
+
+      <blockquote>
+        <strong>setDataType</strong> ( Receive: <code>String</code> | Returns: <code>String</code> | Options: <code>html</code>,
+        <code>json</code>, <code>jsonp</code>, <code>script</code>, <code>xml</code> )
+        <p>The type of data that you're expecting back from the server.</p>
+
+        <blockquote>
+          <pre class="prettyprint linenums lang-js"><%= %`var xhr;
+xhr = new Lol.Ajax({autoExecute: false});
+xhr.setDataType("json");` %></pre>
+        </blockquote>
+      </blockquote>
+
+      <blockquote>
+        <strong>execute</strong> ( Returns: <code>jqXHR</code> )
+        <p>Performs pre-configured request. Returns an object from jQuery "jqXHR".</p>
+
+        <blockquote>
+          <pre class="prettyprint linenums lang-js"><%= %`var xhr, xhrReturns;
+xhr = new Lol.Ajax({autoExecute: false});
+xhrReturns = xhr.execute();` %></pre>
+        </blockquote>
+      </blockquote>
+
+      <hr />
+      <h4 id="change_defaults">Change Default Configuration</h4>
+      <p>The class "Ajax" allows you to set a new standard configuration model. Below you can see the content standard
+        and how it is configured.</p>
+
+      <pre class="prettyprint linenums lang-js"><%= %`Lol.ajax = {
+  defaults: {
+    /*
+    Indicates whether the object should
+    be executed at the end of its creation
+    @type {Boolean}
+    */
+    autoExecute: true,
+    /*
+    Indicates whether the object should use
+    a loader to stop, until the completion
+    of the request
+    @type {Boolean}
+    */
+    useLoader: true,
+    /*
+    Indicates the content type of the request
+    @type {String}
+    */
+    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+    /*
+    Indicates the url of the request
+    @type {String}
+    */
+    url: null,
+    /*
+    Indicates the method of the request
+    options : GET | POST | PUT | DELETE
+    @type {String}
+    */
+    method: 'GET',
+    /*
+    Indicates the content of the request
+    @type {Object}
+    */
+    data: {},
+    /*
+    Indicates the type of expected return
+    after the completion of request
+    @type {String}
+    */
+    dataType: 'json',
+    /*
+    Callbacks run through the requisition
+    @see http://api.jquery.com/jQuery.ajax/
+    */
+    callbacks: {
+      beforeSend: function(jqXHR, settings) {},
+      complete: function(jqXHR, textStatus) {},
+      error: function(jqXHR, textStatus, errorThrown) {},
+      success: function(data, textStatus, jqXHR) {}
+    }
+  }
+};` %></pre>
+
+
     </div>
   </div>
+</div>
 </div>

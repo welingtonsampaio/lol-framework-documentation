@@ -8,4 +8,6 @@ class PagesController < ApplicationController
   end
   def started
   end
+  def download
+  end
 end

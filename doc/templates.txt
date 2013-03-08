@@ -1,3 +1,17 @@
+##---- template for header titles
+<header class="page">
+  <div class="patterns"></div>
+  <div class="container content">
+    <div class="row">
+      <div class="span10 offset1">
+        <h4>Title</h4>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
 ##---- template for example box
 
 <div class="example">
@@ -36,6 +50,90 @@
       </div>
       <div class="tab-pane" id="example-1-js">
         <pre class="prettyprint lang-js linenums"><%= %`` %></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+##---- template for code and title for js
+<header class="page">
+  <div class="patterns"></div>
+  <div class="container content">
+    <div class="row">
+      <div class="span10 offset1">
+        <h4>Title</h4>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container container-box">
+  <div class="row">
+    <div class="span10 offset1">
+      <div class="box">
+        <p>description</p>
+
+        <div class="example">
+          <div class="title">
+            example
+          </div>
+          <div class="content">
+          </div>
+          <%= content_for :footer do %>
+            <script type="text/javascript">
+              jQuery(document).ready(function(){
+              });
+            </script>
+          <% end %>
+        </div>
+
+        <div class="example">
+          <div class="title">
+            code
+          </div>
+          <div class="content">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#example-1-html" data-toggle="tab">Html</a></li>
+              <li><a href="#example-1-js" data-toggle="tab">JS</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="example-1-html">
+                <pre class="prettyprint lang-html linenums"><%= %`` %></pre>
+              </div>
+              <div class="tab-pane" id="example-1-js">
+                <pre class="prettyprint lang-js linenums"><%= %`` %></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <h4 id="all_configurations">All configurations</h4>
+        <p></p>
+        <pre class="prettyprint lang-js linenums"><%= %`` %></pre>
+
+        <blockquote>
+          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+          <p></p>
+        </blockquote>
+
+        <hr />
+        <h4 id="methods">Methods</h4>
+        <p></p>
+
+        <pre class="prettyprint lang-js linenums"><%= %`` %></pre>
+
+        <blockquote>
+          <strong>name</strong> ( Receive: <code>Type</code> Returns: <code>Type</code> )
+          <p></p>
+          <blockquote>
+            <pre class="prettyprint linenums lang-js"><%= %`` %></pre>
+          </blockquote>
+        </blockquote>
+
+        <hr />
+        <h4 id="change_defaults">Change Default Configuration</h4>
+        <p></p>
+        <pre class="prettyprint linenums lang-js"><%= %`` %></pre>
       </div>
     </div>
   </div>

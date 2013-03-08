@@ -1,0 +1,12 @@
+nav {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  top: 0;
+  .navbar-inner {
+    @include border-radius(0);
+  }
+  a {
+    @include transition( color .2s ease-out);
+  }
+}

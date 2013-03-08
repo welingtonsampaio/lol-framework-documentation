@@ -1,1 +1,216 @@
-<div class="text-center">-- in construction --</div>
+<header class="page">
+  <div class="patterns"></div>
+  <div class="container content">
+    <div class="row">
+      <div class="span10 offset1">
+        <h4>Title</h4>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container container-box">
+  <div class="row">
+    <div class="span10 offset1">
+      <div class="box">
+        <p>description</p>
+
+        <div class="example">
+          <div class="title">
+            example
+          </div>
+          <div class="content">
+          </div>
+          <%= content_for :footer do %>
+            <script type="text/javascript">
+              jQuery(document).ready(function(){
+              });
+            </script>
+          <% end %>
+        </div>
+
+        <div class="example">
+          <div class="title">
+            code
+          </div>
+          <div class="content">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#example-1-html" data-toggle="tab">Html</a></li>
+              <li><a href="#example-1-js" data-toggle="tab">JS</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="example-1-html">
+                <pre class="prettyprint lang-html linenums"><%= %`` %></pre>
+              </div>
+              <div class="tab-pane" id="example-1-js">
+                <pre class="prettyprint lang-js linenums"><%= %`` %></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <h4 id="all_configurations">All configurations</h4>
+        <p></p>
+        <pre class="prettyprint lang-js linenums"><%= %`` %></pre>
+
+        <blockquote>
+          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+          <p></p>
+        </blockquote>
+
+        <hr />
+        <h4 id="methods">Methods</h4>
+        <p></p>
+
+        <pre class="prettyprint lang-js linenums"><%= %`` %></pre>
+
+        <blockquote>
+          <strong>name</strong> ( Receive: <code>Type</code> Returns: <code>Type</code> )
+          <p></p>
+          <blockquote>
+            <pre class="prettyprint linenums lang-js"><%= %`` %></pre>
+          </blockquote>
+        </blockquote>
+
+        <hr />
+        <h4 id="change_defaults">Change Default Configuration</h4>
+        <p>The class "Button" allows you to set a new standard configuration model. Below you can see the content
+          standard and how it is configured.</p>
+        <pre class="prettyprint linenums lang-js"><%= %`Lol.button = {
+  defaults: {
+    /*
+    It contains attributes related
+    to the button in question
+    @type {Object}
+    */
+    attribute: {},
+    /*
+    String with the text referring to
+    the block to create buttons
+    @options YES | NO | OK | CANCEL
+    @type {String}
+    */
+    buttons: null,
+    /*
+    Contains CSS classes to add to the button
+    @type {String}
+    */
+    "class": '',
+    /*
+    Object or container where the button
+    should be added
+    @type {String or DOMObject}
+    */
+    container: 'body',
+    /*
+    Specifies whether the object should
+    print debug messages
+    @type {Boolean}
+    */
+    debug: false,
+    /*
+    Specifies what should be the return of
+    the event after shooting
+    @type {Boolean}
+    */
+    return_handler: false,
+    /*
+    Enter the text within the button
+    @type {String}
+    */
+    text: null,
+    /*
+    Object that contains the attributes
+    of the buttons on the block
+    @type {Object}
+    */
+    attributes: {
+      /*
+      Attributes for the CANCEL button
+      @type {Object}
+      */
+      CANCEL: {},
+      /*
+      Attributes for the NO button
+      @type {Object}
+      */
+      NO: {},
+      /*
+      Attributes for the OK button
+      @type {Object}
+      */
+      OK: {},
+      /*
+      Attributes for the YES button
+      @type {Object}
+      */
+      YES: {}
+    },
+    /*
+    Specifies the events for the button
+    @type {Object}
+    */
+    callback: {
+      /*
+      Click event to the button
+      @type {Function}
+      */
+      click: function() {}
+    },
+    /*
+    Contains classes to add buttons on the block
+    @type {Object}
+    */
+    classes: {
+      /*
+      Contains CSS classes to add to the OK button
+      @type {String}
+      */
+      OK: 'btn',
+      /*
+      Contains CSS classes to add to the CANCEL button
+      @type {String}
+      */
+      CANCEL: 'btn btn-danger',
+      /*
+      Contains CSS classes to add to the YES button
+      @type {String}
+      */
+      YES: 'btn',
+      /*
+      Contains CSS classes to add to the NO button
+      @type {String}
+      */
+      NO: 'btn'
+    },
+    /*
+    Contains events to add buttons on the block
+    @type {String}
+    */
+    fn: {
+      /*
+      Click event to the OK button
+      @type {Function}
+      */
+      OK_CLICK: function() {},
+      /*
+      Click event to the CANCEL button
+      @type {Function}
+      */
+      CANCEL_CLICK: function() {},
+      /*
+      Click event to the YES button
+      @type {Function}
+      */
+      YES_CLICK: function() {},
+      /*
+      Click event to the NO button
+      @type {Function}
+      */
+      NO_CLICK: function() {}
+    }
+  }
+};` %></pre>
+      </div>
+    </div>
+  </div>
+</div>
