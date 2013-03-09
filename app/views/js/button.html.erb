@@ -3,7 +3,7 @@
   <div class="container content">
     <div class="row">
       <div class="span10 offset1">
-        <h4>Title</h4>
+        <h4>Js - Buttons</h4>
       </div>
     </div>
   </div>
@@ -12,17 +12,41 @@
   <div class="row">
     <div class="span10 offset1">
       <div class="box">
-        <p>description</p>
+        <p>Buttons used to generate control actions, such as confirmations and cancellations of shares. The "Lol Button"
+          uses the framework of the system translations, check out this <%= link_to :link, js_i18n_path %>. The buttons
+          are generated using the patterns and styles of Bootstrap, see the documentation <%= link_to :link,
+                                                                                                      js_bootstrap_path
+        %>.</p>
+        <p><strong>Requirements:</strong></p>
+        <ul>
+          <li>Core</li>
+        </ul>
 
         <div class="example">
           <div class="title">
             example
           </div>
           <div class="content">
+            <div id="container_buttons"></div>
+            <div id="info" style="font-family: 'Courier New';"></div>
           </div>
           <%= content_for :footer do %>
             <script type="text/javascript">
               jQuery(document).ready(function(){
+                var btn, click_index;
+                click_index = 0;
+                btn = new Lol.Button({
+                  container: "#container_buttons",
+                  text     : 'Content of button',
+                  callback : {
+                    click: function(event,object){
+                      click_index = click_index + 1;
+                      jQuery('#info').html("---------------------------<br>\n" +
+                          "<strong>Click index:</strong> " + click_index + "<br>\n" +
+                          "<strong>Button id &nbsp;:</strong> " + object.id);
+                    }
+                  }
+                });
               });
             </script>
           <% end %>
@@ -39,10 +63,26 @@
             </ul>
             <div class="tab-content">
               <div class="tab-pane active" id="example-1-html">
-                <pre class="prettyprint lang-html linenums"><%= %`` %></pre>
+                <pre class="prettyprint lang-html linenums"><%= %`<div id="container_buttons"></div>
+<div id="info" style="font-family: 'Courier New';"></div>` %></pre>
               </div>
               <div class="tab-pane" id="example-1-js">
-                <pre class="prettyprint lang-js linenums"><%= %`` %></pre>
+                <pre class="prettyprint lang-js linenums"><%= %`jQuery(document).ready(function(){
+  var btn, click_index;
+  click_index = 0;
+  btn = new Lol.Button({
+    container: "#container_buttons",
+    text     : 'Content of button',
+    callback : {
+      click: function(event,object){
+        click_index = click_index + 1;
+        jQuery('#info').html("---------------------------<br>\\n" +
+            "<strong>Click index:</strong> " + click_index + "<br>\\n" +
+            "<strong>Button id &nbsp;:</strong> " + object.id);
+      }
+    }
+  });
+});` %></pre>
               </div>
             </div>
           </div>
@@ -50,24 +90,181 @@
         <hr />
         <h4 id="all_configurations">All configurations</h4>
         <p></p>
-        <pre class="prettyprint lang-js linenums"><%= %`` %></pre>
+        <pre class="prettyprint lang-js linenums"><%= %`var button;
+button = new Lol.Button({
+    attribute     : {},
+    buttons       : null,
+    class         : '',
+    container     : 'body',
+    debug         : false,
+    return_handler: false,
+    text          : null,
+    use_button_el : true,
+    attributes: {
+      CANCEL : {},
+      NO     : {},
+      OK     : {},
+      YES    : {}
+    },
+    callback: {
+      click: function(event, object){}
+    },
+    classes: {
+      all   : 'btn',
+      OK    : '',
+      CANCEL: 'btn-danger',
+      YES   : '',
+      NO    : ''
+    },
+    fn: {
+      OK_CLICK    : function(event, object){},
+      CANCEL_CLICK: function(event, object){},
+      YES_CLICK   : function(event, object){},
+      NO_CLICK    : function(event, object){}
+    }
+  });` %></pre>
 
         <blockquote>
-          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-          <p></p>
+          <strong>attribute</strong> (<code>Object</code> | Default: <code>{}</code>)
+          <p>Adds attributes to the DOM element. Must be sent with shaped object having the attribute and content. See
+            an example of the object with the attribute "data-toggle", as it should be set and the final object:</p>
+          <blockquote>
+            <p>Code</p>
+            <pre class="prettyprint linenums lang-js"><%= %`var btn;
+btn = new Lol.Button({
+  text     : 'Test attribute data-toggle',
+  attribute: {
+    "data-toggle": "modal"
+  }
+});` %></pre>
+            <p>Result</p>
+            <pre class="prettyprint linenums lang-html"><%= %`<button class="btn" data-toggle="modal">
+  Test attribute data-toggle
+</button>` %></pre>
+          </blockquote>
         </blockquote>
 
-        <hr />
-        <h4 id="methods">Methods</h4>
-        <p></p>
-
-        <pre class="prettyprint lang-js linenums"><%= %`` %></pre>
+        <blockquote>
+          <strong>buttons</strong> (<code>String</code> | Default: <code>null</code> | Options: <code>OK</code>,
+          <code>CANCEL</code>, <code>YES</code>, <code>NO</code> )
+          <p>This parameter facilitates the creation of control buttons. They being a button from the list of options,
+            or a combination separated by <code>_</code>. Eg. <code>OK_CANCEL</code>, this makes the system runs two
+            buttons, one for "OK" and one for "CANCEL". It is possible to configure separate events for each of the
+            buttons, see the parameter <code>attributes</code>, <code>classes</code> and <code>fn</code>.</p>
+        </blockquote>
 
         <blockquote>
-          <strong>name</strong> ( Receive: <code>Type</code> Returns: <code>Type</code> )
-          <p></p>
+          <strong>class</strong> (<code>String</code> | Default: <code>''</code>)
+          <p>Defines style classes that the button should have.</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>container</strong> (<code>String</code> | Default: <code>'body'</code>)
+          <p>Set the selector to receive the button. Should be used by default in jQuery.</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>debug</strong> (<code>Boolean</code> | Default: <code>false</code>)
+          <p>Sets whether the framework should print debug messages to the user.</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>return_handler</strong> (<code>Boolean</code> | Default: <code>false</code>)
+          <p>Indicates what will be the return of function. If false, the trigger event and the return will be false,
+            if true will return the same function triggered.</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>text</strong> (<code>String</code> | Default: <code>default</code>)
+          <p>Text that is printed on the display button.</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>attributes</strong> (<code>Object</code>)
+          <p>This object contains information about the attributes of the creation of automatic control buttons. These
+            attributes can be configured separately as the name of each.</p>
+
           <blockquote>
-            <pre class="prettyprint linenums lang-js"><%= %`` %></pre>
+            <strong>CANCEL</strong> (<code>Object</code> | Default: <code>{}</code>)
+            <p>The object must be equal to the attribute.</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>NO</strong> (<code>Object</code> | Default: <code>{}</code>)
+            <p>The object must be equal to the attribute.</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>OK</strong> (<code>Object</code> | Default: <code>{}</code>)
+            <p>The object must be equal to the attribute.</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>YES</strong> (<code>Object</code> | Default: <code>{}</code>)
+            <p>The object must be equal to the attribute.</p>
+          </blockquote>
+        </blockquote>
+
+        <blockquote>
+          <strong>classes</strong> (<code>Object</code>)
+          <p>Defines style classes that each button will.</p>
+
+          <blockquote>
+            <strong>all</strong> (<code>String</code> | Default: <code>'btn'</code>)
+            <p>Sets style class for all elements of buttons.</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>OK</strong> (<code>String</code> | Default: <code>''</code>)
+            <p>Sets style class for the element of control button "OK".</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>CANCEL</strong> (<code>String</code> | Default: <code>'btn-danger'</code>)
+            <p>Sets style class for the element of control button "CANCEL".</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>YES</strong> (<code>String</code> | Default: <code>''</code>)
+            <p>Sets style class for the element of control button "YES".</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>NO</strong> (<code>String</code> | Default: <code>''</code>)
+            <p>Sets style class for the element of control button "NO".</p>
+          </blockquote>
+        </blockquote>
+
+        <blockquote>
+          <strong>fn</strong> (<code>Object</code>)
+          <p>This object contains the click event for each button generated.</p>
+
+          <blockquote>
+            <strong>OK_CLICK</strong> (<code>Function</code> | Parameters: <code>eventObject -> event</code>,
+            <code>Button -> object</code>)
+            <p>Whenever the button of "OK" is clicked an event is triggered and the call is made through this
+              parameter.</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>CANCEL_CLICK</strong> (<code>Function</code> | Parameters: <code>eventObject -> event</code>,
+            <code>Button -> object</code>)
+            <p>Whenever the button of "CANCEL" is clicked an event is triggered and the call is made through this
+              parameter.</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>YES_CLICK</strong> (<code>Function</code> | Parameters: <code>eventObject -> event</code>,
+            <code>Button -> object</code>)
+            <p>Whenever the button of "YES" is clicked an event is triggered and the call is made through this
+              parameter.</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>NO_CLICK</strong> (<code>Function</code> | Parameters: <code>eventObject -> event</code>,
+            <code>Button -> object</code>)
+            <p>Whenever the button of "NO" is clicked an event is triggered and the call is made through this
+              parameter.</p>
           </blockquote>
         </blockquote>
 
@@ -75,7 +272,11 @@
         <h4 id="change_defaults">Change Default Configuration</h4>
         <p>The class "Button" allows you to set a new standard configuration model. Below you can see the content
           standard and how it is configured.</p>
-        <pre class="prettyprint linenums lang-js"><%= %`Lol.button = {
+        <pre class="prettyprint linenums lang-js"><%= %`/*
+Contains the definitions of standards Lol.Button
+@type {Object}
+*/
+Lol.button = {
   defaults: {
     /*
     It contains attributes related
@@ -154,7 +355,7 @@
       Click event to the button
       @type {Function}
       */
-      click: function() {}
+      click: function(event, object) {}
     },
     /*
     Contains classes to add buttons on the block
@@ -162,25 +363,30 @@
     */
     classes: {
       /*
+      Contains CSS classes to add to All buttons
+      @type {String}
+      */
+      all: 'btn',
+      /*
       Contains CSS classes to add to the OK button
       @type {String}
       */
-      OK: 'btn',
+      OK: '',
       /*
       Contains CSS classes to add to the CANCEL button
       @type {String}
       */
-      CANCEL: 'btn btn-danger',
+      CANCEL: 'btn-danger',
       /*
       Contains CSS classes to add to the YES button
       @type {String}
       */
-      YES: 'btn',
+      YES: '',
       /*
       Contains CSS classes to add to the NO button
       @type {String}
       */
-      NO: 'btn'
+      NO: ''
     },
     /*
     Contains events to add buttons on the block
@@ -191,22 +397,22 @@
       Click event to the OK button
       @type {Function}
       */
-      OK_CLICK: function() {},
+      OK_CLICK: function(event, object) {},
       /*
       Click event to the CANCEL button
       @type {Function}
       */
-      CANCEL_CLICK: function() {},
+      CANCEL_CLICK: function(event, object) {},
       /*
       Click event to the YES button
       @type {Function}
       */
-      YES_CLICK: function() {},
+      YES_CLICK: function(event, object) {},
       /*
       Click event to the NO button
       @type {Function}
       */
-      NO_CLICK: function() {}
+      NO_CLICK: function(event, object) {}
     }
   }
 };` %></pre>
