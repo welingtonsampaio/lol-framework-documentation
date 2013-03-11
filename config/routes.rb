@@ -1,8 +1,8 @@
 LolFramework::Application.routes.draw do
 
+  resources :users
+
   root :to => 'pages#index'
-
-
 
   get "css/bootstrap" => "css#bootstrap", as: :css_bootstrap
   #--

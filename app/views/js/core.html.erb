@@ -12,69 +12,103 @@
   <div class="row">
     <div class="span10 offset1">
       <div class="box">
-        <p></p>
+        <p>The "Core" of Lol is responsible for implementing control functions and patterns to objects Framework.</p>
+        <p><strong>Requirements:</strong></p>
+        <ul>
+          <li>lol</li>
+          <li>utils</li>
+          <li>i18n</li>
+          <li>lang_en_us</li>
+          <li>debug</li>
+        </ul>
 
-        <div class="example">
-          <div class="title">
-            example
-          </div>
-          <div class="content">
-          </div>
-          <%= content_for :footer do %>
-            <script type="text/javascript">
-              jQuery(document).ready(function(){
-              });
-            </script>
-          <% end %>
-        </div>
 
-        <div class="example">
-          <div class="title">
-            code
-          </div>
-          <div class="content">
-            <ul class="nav nav-tabs">
-              <li class="active"><a href="#example-1-html" data-toggle="tab">Html</a></li>
-              <li><a href="#example-1-js" data-toggle="tab">JS</a></li>
-            </ul>
-            <div class="tab-content">
-              <div class="tab-pane active" id="example-1-html">
-                <pre class="prettyprint lang-html linenums"><%= %`` %></pre>
-              </div>
-              <div class="tab-pane" id="example-1-js">
-                <pre class="prettyprint lang-js linenums"><%= %`` %></pre>
-              </div>
-            </div>
-          </div>
-        </div>
         <hr />
         <h4 id="all_configurations">All configurations</h4>
         <p></p>
-        <pre class="prettyprint lang-js linenums"><%= %`` %></pre>
+        <pre class="prettyprint lang-js linenums"><%= %`/*
+Create a new instance of Core.
+
+@classDescription This class creates a new Core.
+@return {Core}    Returns a new Core.
+@type   {Object}
+*/
+Lol.Core = (function() {
+
+  function Core() {}
+
+  Core.prototype.id = null;
+  Core.prototype.debugIndex = 1;
+  Core.prototype.debugPrefix = null;
+  Core.prototype.settings = {
+    debug: false
+  };
+
+  return Core;
+
+})();` %></pre>
 
         <blockquote>
-          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-          <p></p>
+          <strong>id</strong> (<code>String</code> | Default: <code>null</code>)
+          <p>Unique identifier of the object created. This value is stored in the object "Lol.Utils" and can be
+            retrieved when needed. See the documentation "Lol.Utils" link.</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>debugIndex</strong> (<code>Integer</code> | Default: <code>1</code>)
+          <p>He keeps the number of debug messages printed by the object.</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>debugPrefix</strong> (<code>String</code> | Default: <code>null</code>)
+          <p>It is the object name, which will be printed in the debug messages for identification.</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>settings</strong> (<code>Object</code>)
+          <p>Control objects. Contains information about the specific object. All information provided in this object
+            can be modified at the time of object instantiation son.</p>
         </blockquote>
 
         <hr />
         <h4 id="methods">Methods</h4>
         <p></p>
 
-        <pre class="prettyprint lang-js linenums"><%= %`` %></pre>
+        <pre class="prettyprint lang-js linenums"><%= %`Lol.Core = (function() {
+
+  function Core() {}
+
+  Core.prototype.verifyJQuery = function() {};
+  Core.prototype.generateId = function() {};
+  Core.prototype.destroy = function() {};
+  Core.prototype.debug = function() {};
+
+  return Core;
+
+})();` %></pre>
 
         <blockquote>
-          <strong>name</strong> ( Receive: <code>Type</code> Returns: <code>Type</code> )
-          <p></p>
-          <blockquote>
-            <pre class="prettyprint linenums lang-js"><%= %`` %></pre>
-          </blockquote>
+          <strong>verifyJQuery</strong> ( Returns: <code>Boolean</code> )
+          <p>As the name says, checks whether the jquery library if there is not an exception bursts stopping all
+            executable rights.</p>
         </blockquote>
 
-        <hr />
-        <h4 id="change_defaults">Change Default Configuration</h4>
-        <p></p>
-        <pre class="prettyprint linenums lang-js"><%= %`` %></pre>
+        <blockquote>
+          <strong>generateId</strong> ( Returns: <code>String</code> )
+          <p>Method responsible for generating the unique identifier for the object in question.</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>destroy</strong> ( Returns: <code>Boolean</code> )
+          <p>Remove references to the "Lol.Utils" object, clearing the existence of the same in memory.</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>debug</strong> ( Receive: <code>Mixin</code> Returns: <code>Integer</code> )
+          <p>Responsible for checking and printing of debug messages for all objects. All parameters passed to the
+            methods will be printed on the screen. The return is the index of the next debug message.</p>
+        </blockquote>
+
       </div>
     </div>
   </div>

@@ -1,36 +1,1430 @@
-<!-- Working grinds -->
-<div class="container">
+<div id="alerts" class="alerts"></div>
+<header class="page">
+  <div class="patterns"></div>
+  <div class="container content">
+    <div class="row">
+      <div class="span10 offset1">
+        <h4>Js - DataTable</h4>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container container-box">
   <div class="row">
-    <div class="span12">
-      <table id="lol-datatable" data-lol-datatable="true">
-        <thead>
-        <tr>
-          <th>ID</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr
-        data-datatable-link="http://welington.zaez.net/"
-        data-datatable-edit-link="#edit_my_page_ws"
-        data-datatable-view-link="#view_my_page_ws"
-        data-datatable-delete-link="#delete_my_page_ws">
-          <td>1</td>
-          <td>Welington</td>
-          <td>Sampaio</td>
-        </tr>
-        <tr
-        data-datatable-link="http://fabricio.zaez.net/"
-        data-datatable-edit-link="#edit_my_page_fm"
-        data-datatable-view-link="#view_my_page_fm"
-        data-datatable-delete-link="#delete_my_page_fm">
-          <td>2</td>
-          <td>Fabricio</td>
-          <td>Monte</td>
-        </tr>
-        </tbody>
-      </table>
+    <div class="span10 offset1">
+      <div class="box">
+        <p>DataTable object is to generate rich application tables. It allows you to generate ordinations, right-click
+          button, among other features. Below we describe in detail all the features of each of the modules
+          "Lol.Datatable" for details pedios to read the features of the library used for creating DataTables this
+          <%= link_to :link, js_datatables_path %>.</p>
+        <p><strong>Requirements:</strong></p>
+        <ul>
+          <li>core</li>
+          <li>library_jquery_dataTables_min</li>
+        </ul>
+
+        <div class="example">
+          <div class="title">
+            example
+          </div>
+          <div class="content">
+            <table id="lol-datatable">
+              <thead>
+              <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+              </tr>
+              </thead>
+              <tbody>
+              <!--<% User.all.each do |u| %>-->
+              <!--<tr-->
+              <!--data-datatable-link="<%= u.website -%>"-->
+              <!--data-datatable-edit-link="#edit_my_page_ws"-->
+              <!--data-datatable-view-link="#view_my_page_ws"-->
+              <!--data-datatable-delete-link="#delete_my_page_ws"-->
+              <!--data-datatable-model-name="<%= u.class.model_name -%>"-->
+              <!--data-datatable-model-id="<%= u.id %>">-->
+                <!--<td><%= u.id %></td>-->
+                <!--<td><%= u.firstname %></td>-->
+                <!--<td><%= u.lastname %></td>-->
+              <!--</tr>-->
+              <!--<% end %>-->
+              <tr>
+                <td>Cidade</td>
+                <td>Número de habitantes </td>
+                <td>Região Administrativa</td>
+              </tr>
+              <tr>
+                <td>Roseira</td>
+                <td>10.016</td>
+                <td>São José dos    Campos</td>
+              </tr>
+              <tr>
+                <td>Estiva Gerbi</td>
+                <td>10.095</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Bananal</td>
+                <td>10.117</td>
+                <td>São José dos Campos</td>
+              </tr>
+              <tr>
+                <td>Valentim    Gentil</td>
+                <td>10.129</td>
+                <td>São José do Rio Preto</td>
+              </tr>
+              <tr>
+                <td>Palmeira    d'Oeste</td>
+                <td>10.195</td>
+                <td>São José do Rio Preto</td>
+              </tr>
+              <tr>
+                <td>Sales    Oliveira</td>
+                <td>10.227</td>
+                <td>Franca</td>
+              </tr>
+              <tr>
+                <td>Pirangi</td>
+                <td>10.268</td>
+                <td>Barretos</td>
+              </tr>
+              <tr>
+                <td>Tapiraí</td>
+                <td>10.429</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Areiópolis</td>
+                <td>10.439</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Nhandeara</td>
+                <td>10.440</td>
+                <td>São José do Rio Preto</td>
+              </tr>
+              <tr>
+                <td>Bocaina</td>
+                <td>10.444</td>
+                <td>Bauru</td>
+              </tr>
+              <tr>
+                <td>Rincão</td>
+                <td>10.493</td>
+                <td>Araraquara</td>
+              </tr>
+              <tr>
+                <td>São Luís do    Paraitinga</td>
+                <td>10.727</td>
+                <td>São José dos Campos</td>
+              </tr>
+              <tr>
+                <td>Euclides da    Cunha Paulista</td>
+                <td>10.745</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Getulina</td>
+                <td>10.800</td>
+                <td>Bauru</td>
+              </tr>
+              <tr>
+                <td>Flórida    Paulista</td>
+                <td>10.804</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Guaiçara</td>
+                <td>10.824</td>
+                <td>Bauru</td>
+              </tr>
+              <tr>
+                <td>Morungaba</td>
+                <td>10.824</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Tabapuã</td>
+                <td>10.846</td>
+                <td>São José do Rio Preto</td>
+              </tr>
+              <tr>
+                <td>Itapuí</td>
+                <td>10.936</td>
+                <td>Bauru</td>
+              </tr>
+              <tr>
+                <td>Parapuã</td>
+                <td>11.014</td>
+                <td>Marília</td>
+              </tr>
+              <tr>
+                <td>Guareí</td>
+                <td>11.047</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>General    Salgado</td>
+                <td>11.114</td>
+                <td>Araçatuba</td>
+              </tr>
+              <tr>
+                <td>São Bento do    Sapucaí</td>
+                <td>11.150</td>
+                <td>São José dos Campos</td>
+              </tr>
+              <tr>
+                <td>Vera Cruz</td>
+                <td>11.182</td>
+                <td>Marília</td>
+              </tr>
+              <tr>
+                <td>Piratininga</td>
+                <td>11.186</td>
+                <td>Bauru</td>
+              </tr>
+              <tr>
+                <td>Bernardino de    Campos</td>
+                <td>11.232</td>
+                <td>Marília</td>
+              </tr>
+              <tr>
+                <td>Tarumã</td>
+                <td>11.442</td>
+                <td>Marília</td>
+              </tr>
+              <tr>
+                <td>Cardoso</td>
+                <td>11.610</td>
+                <td>São José do Rio Preto</td>
+              </tr>
+              <tr>
+                <td>Joanópolis</td>
+                <td>11.686</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Ribeirão    Bonito</td>
+                <td>11.808</td>
+                <td>Araraquara</td>
+              </tr>
+              <tr>
+                <td>Engenheiro    Coelho</td>
+                <td>11.899</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Quatá</td>
+                <td>11.942</td>
+                <td>Marília</td>
+              </tr>
+              <tr>
+                <td>Patrocínio    Paulista</td>
+                <td>12.204</td>
+                <td>Franca</td>
+              </tr>
+              <tr>
+                <td>Divinolândia</td>
+                <td>12.211</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Urupês</td>
+                <td>12.348</td>
+                <td>São José do Rio Preto</td>
+              </tr>
+              <tr>
+                <td>Chavantes</td>
+                <td>12.424</td>
+                <td>Marília</td>
+              </tr>
+              <tr>
+                <td>Pinhalzinho</td>
+                <td>12.456</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Mineiros do    Tietê</td>
+                <td>12.477</td>
+                <td>Bauru</td>
+              </tr>
+              <tr>
+                <td>Pacaembu</td>
+                <td>12.724</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Ipuã</td>
+                <td>12.743</td>
+                <td>Franca</td>
+              </tr>
+              <tr>
+                <td>São Sebastião    da Grama</td>
+                <td>12.887</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Tupi Paulista</td>
+                <td>13.037</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Ipaussu</td>
+                <td>13.129</td>
+                <td>Marília</td>
+              </tr>
+              <tr>
+                <td>Duartina</td>
+                <td>13.135</td>
+                <td>Bauru</td>
+              </tr>
+              <tr>
+                <td>Araçariguama</td>
+                <td>13.216</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Maracaí</td>
+                <td>13.312</td>
+                <td>Marília</td>
+              </tr>
+              <tr>
+                <td>Tapiratiba</td>
+                <td>13.507</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Boa Esperança    do Sul</td>
+                <td>13.654</td>
+                <td>Araraquara</td>
+              </tr>
+              <tr>
+                <td>Pindorama</td>
+                <td>13.713</td>
+                <td>São José do Rio Preto</td>
+              </tr>
+              <tr>
+                <td>Cesário Lange</td>
+                <td>13.781</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Auriflama</td>
+                <td>13.844</td>
+                <td>Araçatuba</td>
+              </tr>
+              <tr>
+                <td>Borborema</td>
+                <td>13.903</td>
+                <td>Araraquara</td>
+              </tr>
+              <tr>
+                <td>Cananéia</td>
+                <td>13.964</td>
+                <td>Registro</td>
+              </tr>
+              <tr>
+                <td>Santa Adélia</td>
+                <td>13.972</td>
+                <td>São José do Rio Preto</td>
+              </tr>
+              <tr>
+                <td>Tabatinga</td>
+                <td>14.091</td>
+                <td>Araraquara</td>
+              </tr>
+              <tr>
+                <td>Charqueada</td>
+                <td>14.217</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Sete Barras</td>
+                <td>14.339</td>
+                <td>Registro</td>
+              </tr>
+              <tr>
+                <td>Itaporanga</td>
+                <td>14.409</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Panorama</td>
+                <td>14.461</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Pradópolis</td>
+                <td>14.479</td>
+                <td>Ribeirão Preto</td>
+              </tr>
+              <tr>
+                <td>Santa Branca</td>
+                <td>14.509</td>
+                <td>São José dos Campos</td>
+              </tr>
+              <tr>
+                <td>Eldorado</td>
+                <td>14.552</td>
+                <td>Registro</td>
+              </tr>
+              <tr>
+                <td>São Simão</td>
+                <td>14.591</td>
+                <td>Ribeirão Preto</td>
+              </tr>
+              <tr>
+                <td>Buritama</td>
+                <td>14.628</td>
+                <td>Araçatuba</td>
+              </tr>
+              <tr>
+                <td>Itirapina</td>
+                <td>14.647</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Potirendaba</td>
+                <td>14.782</td>
+                <td>São José do Rio Preto</td>
+              </tr>
+              <tr>
+                <td>Itajobi</td>
+                <td>14.893</td>
+                <td>São José do Rio Preto</td>
+              </tr>
+              <tr>
+                <td>Itariri</td>
+                <td>14.897</td>
+                <td>Registro</td>
+              </tr>
+              <tr>
+                <td>Elias Fausto</td>
+                <td>15.018</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Bom Jesus dos    Perdões</td>
+                <td>15.226</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Severinia</td>
+                <td>15.262</td>
+                <td>Barretos</td>
+              </tr>
+              <tr>
+                <td>Castilho</td>
+                <td>15.302</td>
+                <td>Araçatuba</td>
+              </tr>
+              <tr>
+                <td>Pirapora do    Bom Jesus</td>
+                <td>15.313</td>
+                <td>Metropolitana de São    Paulo</td>
+              </tr>
+              <tr>
+                <td>Presidente    Bernardes</td>
+                <td>15.349</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Bady Bassit</td>
+                <td>15.386</td>
+                <td>São José do Rio Preto</td>
+              </tr>
+              <tr>
+                <td>São Lourenço    da Serra</td>
+                <td>15.413</td>
+                <td>Metropolitana de São    Paulo</td>
+              </tr>
+              <tr>
+                <td>Piquete</td>
+                <td>15.415</td>
+                <td>São José dos Campos</td>
+              </tr>
+              <tr>
+                <td>Fartura</td>
+                <td>15.435</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Pedregulho</td>
+                <td>15.812</td>
+                <td>Franca</td>
+              </tr>
+              <tr>
+                <td>Guapiaçu</td>
+                <td>15.858</td>
+                <td>São José do Rio Preto</td>
+              </tr>
+              <tr>
+                <td>Nazaré    Paulista</td>
+                <td>15.911</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Salesópolis</td>
+                <td>15.953</td>
+                <td>Metropolitana de São    Paulo</td>
+              </tr>
+              <tr>
+                <td>Potim</td>
+                <td>16.160</td>
+                <td>São José dos Campos</td>
+              </tr>
+              <tr>
+                <td>Cerqueira    César</td>
+                <td>16.296</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Alumínio</td>
+                <td>16.335</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Itatinga</td>
+                <td>16.352</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Capela do    Alto</td>
+                <td>16.422</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Conchas</td>
+                <td>16.463</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Altinópolis</td>
+                <td>16.574</td>
+                <td>Ribeirão Preto</td>
+              </tr>
+              <tr>
+                <td>Junqueirópolis</td>
+                <td>16.767</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Mirante do    Paranapanema</td>
+                <td>16.790</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Cafelândia</td>
+                <td>16.792</td>
+                <td>Bauru</td>
+              </tr>
+              <tr>
+                <td>Paranapanema</td>
+                <td>16.964</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Macatuba</td>
+                <td>17.077</td>
+                <td>Bauru</td>
+              </tr>
+              <tr>
+                <td>Iracemápolis</td>
+                <td>17.381</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Colina</td>
+                <td>17.383</td>
+                <td>Barretos</td>
+              </tr>
+              <tr>
+                <td>Viradouro</td>
+                <td>17.475</td>
+                <td>Barretos</td>
+              </tr>
+              <tr>
+                <td>Jacupiranga</td>
+                <td>17.929</td>
+                <td>Registro</td>
+              </tr>
+              <tr>
+                <td>Nova Granada</td>
+                <td>18.013</td>
+                <td>São José do Rio Preto</td>
+              </tr>
+              <tr>
+                <td>Regente Feijó</td>
+                <td>18.188</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Águas de    Lindóia</td>
+                <td>18.287</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Paraibuna</td>
+                <td>18.383</td>
+                <td>São José dos Campos</td>
+              </tr>
+              <tr>
+                <td>Brodowski</td>
+                <td>18.874</td>
+                <td>Ribeirão Preto</td>
+              </tr>
+              <tr>
+                <td>Pompéia</td>
+                <td>18.996</td>
+                <td>Marília</td>
+              </tr>
+              <tr>
+                <td>Lucélia</td>
+                <td>19.000</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Monte    Aprazível</td>
+                <td>19.049</td>
+                <td>São José do Rio Preto</td>
+              </tr>
+              <tr>
+                <td>Santa    Gertrudes</td>
+                <td>19.071</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Caconde</td>
+                <td>19.144</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Buri</td>
+                <td>19.387</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Valparaíso</td>
+                <td>19.498</td>
+                <td>Araçatuba</td>
+              </tr>
+              <tr>
+                <td>Itaberá</td>
+                <td>19.621</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Pariquera-Açu</td>
+                <td>20.004</td>
+                <td>Registro</td>
+              </tr>
+              <tr>
+                <td>Miguelópolis</td>
+                <td>20.089</td>
+                <td>Franca</td>
+              </tr>
+              <tr>
+                <td>Guará</td>
+                <td>20.303</td>
+                <td>Franca</td>
+              </tr>
+              <tr>
+                <td>Angatuba</td>
+                <td>20.325</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Cordeirópolis</td>
+                <td>20.344</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Santo Antônio    de Posse</td>
+                <td>20.578</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Monte Azul    Paulista</td>
+                <td>20.631</td>
+                <td>Barretos</td>
+              </tr>
+              <tr>
+                <td>Jarinu</td>
+                <td>20.693</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Guapiara</td>
+                <td>20.715</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Teodoro    Sampaio</td>
+                <td>20.809</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Pirajuí</td>
+                <td>20.894</td>
+                <td>Bauru</td>
+              </tr>
+              <tr>
+                <td>Santo    Anastácio</td>
+                <td>21.198</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Bastos</td>
+                <td>21.448</td>
+                <td>Marília</td>
+              </tr>
+              <tr>
+                <td>Brotas</td>
+                <td>21.513</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Palmital</td>
+                <td>21.727</td>
+                <td>Marília</td>
+              </tr>
+              <tr>
+                <td>Iperó</td>
+                <td>22.017</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Cajuru</td>
+                <td>22.045</td>
+                <td>Ribeirão Preto</td>
+              </tr>
+              <tr>
+                <td>Juquiá</td>
+                <td>22.206</td>
+                <td>Registro</td>
+              </tr>
+              <tr>
+                <td>Santa Rosa do    Viterbo</td>
+                <td>22.438</td>
+                <td>Ribeirão Preto</td>
+              </tr>
+              <tr>
+                <td>Ribeirão    Branco</td>
+                <td>22.569</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Itaí</td>
+                <td>22.688</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Pirapozinho</td>
+                <td>23.004</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Araçoiaba da    Serra</td>
+                <td>23.027</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Tanabi</td>
+                <td>23.289</td>
+                <td>São José do Rio Preto</td>
+              </tr>
+              <tr>
+                <td>Cunha</td>
+                <td>23.449</td>
+                <td>São José dos Campos</td>
+              </tr>
+              <tr>
+                <td>Taquarituba</td>
+                <td>23.460</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Laranjal    Paulista</td>
+                <td>23.512</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Tambaú</td>
+                <td>23.520</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Igaraçu do    Tietê</td>
+                <td>23.715</td>
+                <td>Bauru</td>
+              </tr>
+              <tr>
+                <td>Martinópolis</td>
+                <td>23.763</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Miracatu</td>
+                <td>24.091</td>
+                <td>Registro</td>
+              </tr>
+              <tr>
+                <td>Guararema</td>
+                <td>24.111</td>
+                <td>Metropolitana de São    Paulo</td>
+              </tr>
+              <tr>
+                <td>Dois Córregos</td>
+                <td>24.338</td>
+                <td>Bauru</td>
+              </tr>
+              <tr>
+                <td>Álvares    Machado</td>
+                <td>24.480</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Conchal</td>
+                <td>24.529</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Serra Negra</td>
+                <td>24.887</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Pereira    Barreto</td>
+                <td>25.056</td>
+                <td>Araçatuba</td>
+              </tr>
+              <tr>
+                <td>Ilhabela</td>
+                <td>25.317</td>
+                <td>São José dos Campos</td>
+              </tr>
+              <tr>
+                <td>Ilha Solteira</td>
+                <td>25.369</td>
+                <td>Araçatuba</td>
+              </tr>
+              <tr>
+                <td>Piracaia</td>
+                <td>25.584</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Rio das    Pedras</td>
+                <td>25.786</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Rosana</td>
+                <td>26.199</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Pilar do Sul</td>
+                <td>26.299</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Mirandópolis</td>
+                <td>27.090</td>
+                <td>Araçatuba</td>
+              </tr>
+              <tr>
+                <td>Barrinha</td>
+                <td>27.242</td>
+                <td>Ribeirão Preto</td>
+              </tr>
+              <tr>
+                <td>Santa Rita do    Passa Quatro</td>
+                <td>27.288</td>
+                <td>São José do Rio Preto</td>
+              </tr>
+              <tr>
+                <td>Casa Branca</td>
+                <td>27.461</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Santa Cruz    das Palmeiras</td>
+                <td>27.589</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Morro Agudo</td>
+                <td>27.765</td>
+                <td>Franca</td>
+              </tr>
+              <tr>
+                <td>Igarapava</td>
+                <td>27.786</td>
+                <td>Franca</td>
+              </tr>
+              <tr>
+                <td>Santa Fé do    Sul</td>
+                <td>28.162</td>
+                <td>São José do Rio Preto</td>
+              </tr>
+              <tr>
+                <td>Apiaí</td>
+                <td>28.163</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Louveira</td>
+                <td>28.389</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Iguape</td>
+                <td>28.470</td>
+                <td>Registro</td>
+              </tr>
+              <tr>
+                <td>Biritiba    Mirim</td>
+                <td>28.760</td>
+                <td>Metropolitana de São    Paulo</td>
+              </tr>
+              <tr>
+                <td>Piraju</td>
+                <td>29.133</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Cachoeira    Paulista</td>
+                <td>29.431</td>
+                <td>São José dos Campos</td>
+              </tr>
+              <tr>
+                <td>Rancharia</td>
+                <td>29.737</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Guararapes</td>
+                <td>29.835</td>
+                <td>Araçatuba</td>
+              </tr>
+              <tr>
+                <td>Bariri</td>
+                <td>30.009</td>
+                <td>Bauru</td>
+              </tr>
+              <tr>
+                <td>Osvaldo Cruz</td>
+                <td>30.045</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Juquitiba</td>
+                <td>30.501</td>
+                <td>Metropolitana de São    Paulo</td>
+              </tr>
+              <tr>
+                <td>Descalvado</td>
+                <td>30.600</td>
+                <td>Araraquara</td>
+              </tr>
+              <tr>
+                <td>Itupeva</td>
+                <td>30.667</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Ibaté</td>
+                <td>30.854</td>
+                <td>Araraquara</td>
+              </tr>
+              <tr>
+                <td>Aguaí</td>
+                <td>30.972</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Cândido Mota</td>
+                <td>31.251</td>
+                <td>Marília</td>
+              </tr>
+              <tr>
+                <td>José    Bonifácio</td>
+                <td>31.276</td>
+                <td>São José do Rio Preto</td>
+              </tr>
+              <tr>
+                <td>Cravinhos</td>
+                <td>31.605</td>
+                <td>Ribeirão Preto</td>
+              </tr>
+              <tr>
+                <td>Cajati</td>
+                <td>32.052</td>
+                <td>Registro</td>
+              </tr>
+              <tr>
+                <td>Guariba</td>
+                <td>32.486</td>
+                <td>Ribeirão Preto</td>
+              </tr>
+              <tr>
+                <td>São Pedro</td>
+                <td>32.660</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Américo    Brasiliense</td>
+                <td>32.802</td>
+                <td>Araraquara</td>
+              </tr>
+              <tr>
+                <td>Promissão</td>
+                <td>32.950</td>
+                <td>Bauru</td>
+              </tr>
+              <tr>
+                <td>Jaguariúna</td>
+                <td>32.978</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Pontal</td>
+                <td>33.333</td>
+                <td>Ribeirão Preto</td>
+              </tr>
+              <tr>
+                <td>São Miguel    Arcanjo</td>
+                <td>33.640</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Novo    Horizonte</td>
+                <td>33.741</td>
+                <td>São José do Rio Preto</td>
+              </tr>
+              <tr>
+                <td>Pitangueiras</td>
+                <td>33.762</td>
+                <td>Ribeirão Preto</td>
+              </tr>
+              <tr>
+                <td>Socorro</td>
+                <td>33.779</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Jardinópolis</td>
+                <td>34.311</td>
+                <td>Ribeirão Preto</td>
+              </tr>
+              <tr>
+                <td>Adamantina</td>
+                <td>34.330</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Agudos</td>
+                <td>34.347</td>
+                <td>Bauru</td>
+              </tr>
+              <tr>
+                <td>Cerquilho</td>
+                <td>35.596</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Tietê</td>
+                <td>35.762</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Aparecida</td>
+                <td>36.318</td>
+                <td>São José dos Campos</td>
+              </tr>
+              <tr>
+                <td>Guaíra</td>
+                <td>36.587</td>
+                <td>Barretos</td>
+              </tr>
+              <tr>
+                <td>Serrana</td>
+                <td>37.706</td>
+                <td>Ribeirão Preto</td>
+              </tr>
+              <tr>
+                <td>Barra Bonita</td>
+                <td>37.750</td>
+                <td>Bauru</td>
+              </tr>
+              <tr>
+                <td>Presidente    Venceslau</td>
+                <td>38.237</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Ituverava</td>
+                <td>38.327</td>
+                <td>Franca</td>
+              </tr>
+              <tr>
+                <td>Orlândia</td>
+                <td>38.442</td>
+                <td>Franca</td>
+              </tr>
+              <tr>
+                <td>São Manuel</td>
+                <td>38.950</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Pederneiras</td>
+                <td>39.076</td>
+                <td>Bauru</td>
+              </tr>
+              <tr>
+                <td>Pedreira</td>
+                <td>39.220</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Vargem Grande    do Sul</td>
+                <td>39.323</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Artur    Nogueira</td>
+                <td>39.465</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Tremembé</td>
+                <td>39.731</td>
+                <td>São José dos Campos</td>
+              </tr>
+              <tr>
+                <td>Cabreúva</td>
+                <td>40.053</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Itápolis</td>
+                <td>40.080</td>
+                <td>Araraquara</td>
+              </tr>
+              <tr>
+                <td>Dracena</td>
+                <td>40.986</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Rio Grande da    Serra</td>
+                <td>41.041</td>
+                <td>Metropolitana de São    Paulo</td>
+              </tr>
+              <tr>
+                <td>Salto de    Pirapora</td>
+                <td>41.174</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Boituva</td>
+                <td>41.643</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Presidente    Epitácio</td>
+                <td>41.868</td>
+                <td>Presidente Prudente</td>
+              </tr>
+              <tr>
+                <td>Mongaguá</td>
+                <td>42.525</td>
+                <td>Baixada Santista</td>
+              </tr>
+              <tr>
+                <td>Espírito    Santo do Pinhal</td>
+                <td>42.630</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Paraguaçu    Paulista</td>
+                <td>42.636</td>
+                <td>Marília</td>
+              </tr>
+              <tr>
+                <td>Santa Cruz do    Rio Pardo</td>
+                <td>43.481</td>
+                <td>Marília</td>
+              </tr>
+              <tr>
+                <td>Vargem Grande    Paulista</td>
+                <td>43.689</td>
+                <td>Metropolitana de São    Paulo</td>
+              </tr>
+              <tr>
+                <td>Monte Mor</td>
+                <td>44.193</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>São Joaquim    da Barra</td>
+                <td>44.483</td>
+                <td>Franca</td>
+              </tr>
+              <tr>
+                <td>Bertioga</td>
+                <td>44.517</td>
+                <td>Baixada Santista</td>
+              </tr>
+              <tr>
+                <td>Garça</td>
+                <td>44.926</td>
+                <td>Marília</td>
+              </tr>
+              <tr>
+                <td>Capivari</td>
+                <td>45.186</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Nova Odessa</td>
+                <td>45.629</td>
+                <td>Campinas</td>
+              </tr>
+              <tr>
+                <td>Monte Alto</td>
+                <td>45.660</td>
+                <td>Ribeirão Preto</td>
+              </tr>
+              <tr>
+                <td>Mairinque</td>
+                <td>46.188</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Santa Isabel</td>
+                <td>46.767</td>
+                <td>Metropolitana de São    Paulo</td>
+              </tr>
+              <tr>
+                <td>Capão Bonito</td>
+                <td>47.267</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Olímpia</td>
+                <td>48.365</td>
+                <td>Barretos</td>
+              </tr>
+              <tr>
+                <td>Campos do    Jordão</td>
+                <td>48.478</td>
+                <td>São José dos Campos</td>
+              </tr>
+              <tr>
+                <td>Jales</td>
+                <td>48.538</td>
+                <td>São José do Rio Preto</td>
+              </tr>
+              <tr>
+                <td>Itararé</td>
+                <td>49.559</td>
+                <td>Sorocaba</td>
+              </tr>
+              <tr>
+                <td>Porto Feliz</td>
+                <td>49.647</td>
+                <td>Sorocaba</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <%= content_for :footer do %>
+            <script type="text/javascript">
+              jQuery(document).ready(function(){
+                var dom_table;
+                dom_table = jQuery("#lol-datatable");
+                new Lol.Datatable({target:dom_table});
+              });
+            </script>
+          <% end %>
+        </div>
+
+        <div class="example">
+          <div class="title">
+            code
+          </div>
+          <div class="content">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#example-1-html" data-toggle="tab">Html</a></li>
+              <li><a href="#example-1-js" data-toggle="tab">JS</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="example-1-html">
+                <pre class="prettyprint lang-html linenums"><%= %`<table id="lol-datatable">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+    data-datatable-link="http://welington.zaez.net/"
+    data-datatable-edit-link="#edit_my_page_ws"
+    data-datatable-view-link="#view_my_page_ws"
+    data-datatable-delete-link="#delete_my_page_ws">
+      <td>1</td>
+      <td>Welington</td>
+      <td>Sampaio</td>
+    </tr>
+    <tr
+    data-datatable-link="http://fabricio.zaez.net/"
+    data-datatable-edit-link="#edit_my_page_fm"
+    data-datatable-view-link="#view_my_page_fm"
+    data-datatable-delete-link="#delete_my_page_fm">
+      <td>2</td>
+      <td>Fabricio</td>
+      <td>Monte</td>
+    </tr>
+  </tbody>
+</table>` %></pre>
+              </div>
+              <div class="tab-pane" id="example-1-js">
+                <pre class="prettyprint lang-js linenums"><%= %`jQuery(document).ready(function(){
+  var dom_table;
+  dom_table = jQuery("#lol-datatable");
+  new Lol.Datatable({
+    target:dom_table
+  });
+});` %></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <h4 id="all_configurations">All configurations</h4>
+        <p></p>
+        <pre class="prettyprint lang-js linenums"><%= %`` %></pre>
+
+        <blockquote>
+          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+          <p></p>
+        </blockquote>
+
+        <hr />
+        <h4 id="methods">Methods</h4>
+        <p></p>
+
+        <pre class="prettyprint lang-js linenums"><%= %`` %></pre>
+
+        <blockquote>
+          <strong>name</strong> ( Receive: <code>Type</code> Returns: <code>Type</code> )
+          <p></p>
+          <blockquote>
+            <pre class="prettyprint linenums lang-js"><%= %`` %></pre>
+          </blockquote>
+        </blockquote>
+
+        <hr />
+        <h4 id="change_defaults">Change Default Configuration</h4>
+        <p></p>
+        <pre class="prettyprint linenums lang-js"><%= %`Lol.datatable = {
+  defaults: {
+    debug: true,
+    selectable: true,
+    target: null,
+    delayDblclick: 3000,
+    classes: {
+      activeRow: 'active_row'
+    },
+    contextMenu: {
+      "delete": function(row, object) {
+        new Lol.Modal({
+          buttons: 'OK_CANCEL',
+          content: Lol.t('datatable_confirm_delete'),
+          title: Lol.t('datatable_confirm_delete_title'),
+          callbacks: {
+            buttonClick: function(button, obj) {
+              return obj.destroy();
+            }
+          },
+          buttonParams: {
+            fn: {
+              OK_CLICK: function(event, obj) {
+                var rest;
+                rest = Lol.model({
+                  object: row
+                });
+                return console.log(rest);
+              }
+            }
+          }
+        });
+        return false;
+      },
+      edit: function(row, object) {
+        object.debug(row.data(object.dataset.editLink));
+        window.location = row.data(object.dataset.editLink);
+        return false;
+      },
+      view: function(row, object) {
+        window.location = row.data(object.dataset.viewLink);
+        return false;
+      },
+      iconView: 'icon-eye-open',
+      iconEdit: ' icon-edit',
+      iconDelete: 'icon-remove',
+      useIcons: true,
+      model: null
+    },
+    configuration: {
+      aaSortingFixed: null,
+      aoColumnDefs: null,
+      aoColumns: null,
+      asStripeClasses: null,
+      bAutoWidth: true,
+      bDeferRender: false,
+      bDestroy: false,
+      bFilter: false,
+      bInfo: false,
+      bJQueryUI: false,
+      bLengthChange: false,
+      bPaginate: false,
+      bProcessing: false,
+      bRetrieve: false,
+      bScrollAutoCss: true,
+      bScrollCollapse: false,
+      bScrollInfinite: false,
+      bServerSide: false,
+      bSort: true,
+      bSortCellsTop: false,
+      bSortClasses: true,
+      bStateSave: false,
+      iCookieDuration: 7200,
+      iDeferLoading: null,
+      iDisplayLength: 20,
+      iDisplayStart: 0,
+      iScrollLoadGap: 100,
+      iTabIndex: 0,
+      sAjaxDataProp: "aaData",
+      sAjaxSource: null,
+      sCookiePrefix: "SpryMedia_DataTables_",
+      sDom: "lfrtip",
+      sPaginationType: "two_button",
+      sScrollX: "",
+      sScrollXInner: "",
+      sScrollY: "",
+      sServerMethod: "GET"
+    }
+  }
+};` %></pre>
+      </div>
     </div>
   </div>
 </div>
