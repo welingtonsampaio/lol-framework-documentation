@@ -1,8 +1,7 @@
 LolFramework::Application.routes.draw do
 
-  resources :users
-
   root :to => 'pages#index'
+  delete "users/:id_user" => 'pages#index'
 
   get "css/bootstrap" => "css#bootstrap", as: :css_bootstrap
   #--
