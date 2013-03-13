@@ -1,1 +1,117 @@
-<div class="text-center">-- in construction --</div>
+<header class="page">
+  <div class="patterns"></div>
+  <div class="container content">
+    <div class="row">
+      <div class="span10 offset1">
+        <h4>Js - I18n</h4>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container container-box">
+  <div class="row">
+    <div class="span10 offset1">
+      <div class="box">
+        <p>The object "I18n" in common translation "internationalization" is responsible for the translation system. All
+          objects and require Lol use this object. To order presentation-screen text.</p>
+
+        <div class="example">
+          <div class="title">
+            code
+          </div>
+          <div class="content">
+            <p>Usage</p>
+            <pre class="prettyprint lang-js linenums"><%= %`console.log(Lol.I18n.language); // "en-us"
+console.log(Lol.I18n.translate("search")); // "search"
+Lol.I18n.language = "pt-br";
+console.log(Lol.I18n.translate("search")); // "pesquisa"
+console.log(Lol.t("search")); // Alias method` %></pre>
+          </div>
+        </div>
+        <hr />
+        <h4 id="information">Information</h4>
+        <p>To use the "I18n" just do the same as the above example. the method "Lol.I18n.translate" or its alias "Lol.t"
+          take charge of locating the translation file and key translation is requested.</p>
+        <p>The system "i18n", automatically detects the language through the language's native browser. Can also be
+          defined as the example at the top of the page.</p>
+        <p>If there is no translation file is set to the default "en-us".</p>
+        <hr />
+        <h4 id="languages">Languages ​​available</h4>
+        <p>All translation files are by default in the folder "Lang" with the name of the access key, eg: file English
+          translation of "en-us" should be called "en-us.js."</p>
+        <p>In the repository project you can see all the languages ​​available and help with the translation of the system
+          to their language as well.
+          <%= link_to :link, "https://github.com/welingtonsampaio/lol-framework/tree/master/vendor/assets/javascripts/lol_framework/Lang" %></p>
+
+        <hr />
+        <h4 id="alias">Aliases</h4>
+        <p>It is possible to create aliases for the same translation files, such as "en" and "en". Just add a command to
+          the end of the file to configure.</p>
+        <p>E.g.:</p>
+        <pre class="prettyprint lang-js"><%= %`Lol.i18n['pt'] = Lol.i18n['pt-br'];` %></pre>
+
+        <hr />
+        <h4 id="standard_translation">File for standard translations</h4>
+        <p>This is the default file for translations, you can see him all the keys necessary for the system to work
+          perfectly in your language. The system keeps constantly growing, making this content becomes outdated, for
+          convenience visit this
+          <%= link_to :link, "https://github.com/welingtonsampaio/lol-framework/tree/master/vendor/assets/javascripts/lol_framework/Lang/en-us.coffee" %>
+          and see the full file on github.</p>
+        <pre class="prettyprint lang-js linenums"><%= %`Lol.i18n = Lol.i18n || {};
+
+Lol.i18n['en-us'] = {
+  search: 'search',
+  OK: 'OK',
+  CANCEL: 'CANCEL',
+  YES: 'YES',
+  NO: 'NO',
+  datatable_oAria_sSortAscending: ": activate to sort column ascending",
+  datatable_oAria_sSortDescending: ": activate to sort column descending",
+  datatable_oPaginate_sFirst: "First",
+  datatable_oPaginate_sLast: "Last",
+  datatable_oPaginate_sNext: "Next",
+  datatable_oPaginate_sPrevious: "Previous",
+  datatable_sEmptyTable: "No data available in table",
+  datatable_sInfo: "Showing _START_ to _END_ of _TOTAL_ entries",
+  datatable_sInfoEmpty: "Showing 0 to 0 of 0 entries",
+  datatable_sInfoFiltered: "(filtered from _MAX_ total entries)",
+  datatable_sInfoPostFix: "",
+  datatable_sInfoThousands: ",",
+  datatable_sLengthMenu: "Show _MENU_ entries",
+  datatable_sLoadingRecords: "Loading...",
+  datatable_sProcessing: "Processing...",
+  datatable_sSearch: "<i class='icon-search'></i>",
+  datatable_search: "search...",
+  datatable_sUrl: "",
+  datatable_sZeroRecords: "No matching records found",
+  datatable_view: 'view',
+  datatable_edit: 'edit',
+  datatable_delete: 'delete',
+  datatable_confirm_delete: 'Are you sure you want to delete this record?<br />This operation can not be undone.',
+  datatable_confirm_delete_title: 'Lol Framework',
+  date_months_january: 'January',
+  date_months_february: 'February',
+  date_months_march: 'March',
+  date_months_april: 'April',
+  date_months_may: 'May',
+  date_months_june: 'June',
+  date_months_july: 'July',
+  date_months_august: 'August',
+  date_months_september: 'September',
+  date_months_october: 'October',
+  date_months_november: 'November',
+  date_months_december: 'December',
+  date_days_sunday: 'Sunday',
+  date_days_monday: 'Monday',
+  date_days_tuesday: 'Tuesday',
+  date_days_wednesday: 'Wednesday',
+  date_days_thursday: 'Thursday',
+  date_days_friday: 'Friday',
+  date_days_saturday: 'Saturday',
+  model_destroy_error: 'Could not delete this record. Error: "_STATUS_TEXT_".',
+  model_destroy_success: 'Record successfully deleted.'
+};` %></pre>
+      </div>
+    </div>
+  </div>
+</div>

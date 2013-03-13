@@ -1,1 +1,122 @@
-<div class="text-center">-- in construction --</div>
+<header class="page">
+  <div class="patterns"></div>
+  <div class="container content">
+    <div class="row">
+      <div class="span10 offset1">
+        <h4>Js - Loader</h4>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container container-box">
+  <div class="row">
+    <div class="span10 offset1">
+      <div class="box">
+        <p>The object has a specific function: "Lock the screen of the User while other action is being executed," as an
+          ajax call for example.</p>
+
+        <div class="example">
+          <div class="title">
+            example
+          </div>
+          <div class="content">
+            <div id="buttom"></div>
+            <p>Showing 5 seconds</p>
+          </div>
+          <%= content_for :footer do %>
+            <script type="text/javascript">
+              var interval;
+              jQuery(document).ready(function(){
+                new Lol.Button({
+                  text: "show loader",
+                  container: "#buttom",
+                  callback: {
+                    click: function(event, object){
+                      Lol.Loader.show();
+                      interval = setInterval(function(){
+                        Lol.Loader.remove();
+                        clearInterval(interval);
+                      }, 5000 );
+                    }
+                  }
+                });
+              });
+            </script>
+          <% end %>
+        </div>
+
+        <div class="example">
+          <div class="title">
+            code
+          </div>
+          <div class="content">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#example-1-html" data-toggle="tab">Html</a></li>
+              <li><a href="#example-1-js" data-toggle="tab">JS</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="example-1-html">
+                <pre class="prettyprint lang-html linenums"><%= %`<div id="buttom"></div>
+<p>Showing 5 seconds</p>` %></pre>
+              </div>
+              <div class="tab-pane" id="example-1-js">
+                <pre class="prettyprint lang-js linenums"><%= %`var interval;
+jQuery(document).ready(function(){
+  new Lol.Button({
+    text: "show loader",
+    container: "#buttom",
+    callback: {
+      click: function(event, object){
+        Lol.Loader.show();
+        interval = setInterval(function(){
+          Lol.Loader.remove();
+          clearInterval(interval);
+        }, 5000 );
+      }
+    }
+  });
+});` %></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <h4 id="methods">Methods</h4>
+        <p>The object "Loader" has some methods to control presentation, generation and removal of the object. Be
+          following the use of each.</p>
+
+        <pre class="prettyprint lang-js linenums"><%= %`Lol.Loader = {
+  show: function(){ /* ... native code .... */ },
+  remove: function(){ /* ... native code .... */ };
+  generateObject: function(){ /* ... native code .... */ }
+};` %></pre>
+
+        <blockquote>
+          <strong>show</strong> ( Returns: <code>undefined</code> )
+          <p>Responsible for showing the loader on the client screen.</p>
+          <blockquote>
+            <pre class="prettyprint linenums lang-js"><%= %`Lol.Loader.show();` %></pre>
+          </blockquote>
+        </blockquote>
+
+        <blockquote>
+          <strong>remove</strong> ( Returns: <code>undefined</code> )
+          <p>Responsible for removing the loader from the client screen.</p>
+          <blockquote>
+            <pre class="prettyprint linenums lang-js"><%= %`Lol.Loader.remove();` %></pre>
+          </blockquote>
+        </blockquote>
+
+        <blockquote>
+          <strong>generateObject</strong> ( Returns: <code>Boolean</code> )
+          <p>Responsible for creating the element and adds it to the document. It creates only if the element is not
+            there. Returns "true" if the element did not exist and it was created successfully, returns "false" if the
+            element already exists in the document.</p>
+          <blockquote>
+            <pre class="prettyprint linenums lang-js"><%= %`Lol.Loader.generateObject();` %></pre>
+          </blockquote>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,120 @@
-<div class="text-center">-- in construction --</div>
+<header class="page">
+  <div class="patterns"></div>
+  <div class="container content">
+    <div class="row">
+      <div class="span10 offset1">
+        <h4>Js - Debug</h4>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container container-box">
+  <div class="row">
+    <div class="span10 offset1">
+      <div class="box">
+        <p>Responsible for print debug messages in the console. There are three ways of setting these messages to be
+          printed by setting directly in the instantiated object by setting the object own debug directly on the object
+          or setting Lol, printing all messages debug system. Be below the settings and how to debug the system works.</p>
+
+        <hr />
+        <h4 id="all_configurations">All configurations</h4>
+        <p></p>
+        <pre class="prettyprint lang-js linenums"><%= %`{
+  paramsDefault: {
+    debug    : false,
+    prefix   : 'Lol_Debug',
+    object_id: '',
+    index    : 1,
+    messages : []
+  }
+}` %></pre>
+
+        <blockquote>
+          <strong>debug</strong> (<code>Boolean</code> | Default: <code>false</code>)
+          <p>Defines whether the message should be printed or not.</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>prefix</strong> (<code>String</code> | Default: <code>Lol_Debug</code>)
+          <p>It is the name that will be printed for identification of the message printed on the console.</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>object_id</strong> (<code>String</code> | Default: <code>''</code>)
+          <p>Sets the unique identifier of the object responsible for printing the message on the console.</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>index</strong> (<code>Integer</code> | Default: <code>1</code>)
+          <p>Shows the counter messages printed to the console. The Number is always the next to last message printed.</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>messages</strong> (<code>Array</code> | Default: <code>[]</code>)
+          <p>Array containing the messages and objects to be printed on the console.</p>
+        </blockquote>
+
+        <hr />
+        <h4 id="methods">Methods</h4>
+        <p>The object Debug lets loose impressions on the island without being an object of standard Lol. To do this
+          simply copy the Debug object as in the following example.</p>
+
+        <pre class="prettyprint lang-js linenums"><%= %`var debug;
+debug = Lol.Debug;` %></pre>
+
+        <blockquote>
+          <strong>print</strong> ( Receive: <code>Object</code> Returns: <code>Integer</code> )
+          <p>This method is responsible for printing messages on the console. He receives an object that contains the
+            parameters for printing. Below you can confirir how to use the method and return the same.</p>
+          <blockquote>
+            <pre class="prettyprint linenums lang-js"><%= %`var debug;
+debug = Lol.Debug;
+debug.print({
+  debug    : true,
+  prefix   : 'Lol_Debug',
+  object_id: '123456789',
+  index    : 1,
+  messages : [ "a1", "a2", { a:1 } ]
+}); // ["Lol_Debug 123456789 - 1", "a1", "a2", Object]` %></pre>
+          </blockquote>
+        </blockquote>
+
+        <hr />
+        <p>All objects instantiated from Lol inherit the method for printing debug messages Automated Debug, not being
+          necessary to the creation of anything else. To use the Debug objects within the standards of Lol, is an
+          example to follow.</p>
+        <pre class="prettyprint linenums lang-js"><%= %`var xhr;
+Lol.Ajax.prototype.new_method = function() {
+  return this.debug("Message of debug 1", this);
+};
+
+xhr = new Lol.Ajax({
+  debug      : true,
+  autoExecute: false
+});
+xhr.new_method(); // ["Lol_Ajax 51408a8000002 - 1", "Message of debug 1", Ajax]` %></pre>
+        <hr />
+        <h4 id="change_defaults">Change Default Configuration</h4>
+        <p>The object "Debug" allows you to set a new standard configuration model. Below you can see the content
+          standard and how it is configured.</p>
+        <pre class="prettyprint linenums lang-js"><%= %`/*
+Responsible for handling debug messages
+@type   {Object}
+*/
+Lol.Debug = {
+  /*
+  Configuration default debug
+  @type {Object}
+  */
+  paramsDefault: {
+    debug: false,
+    prefix: 'Lol_Debug',
+    object_id: '',
+    index: 1,
+    messages: []
+  }
+};` %></pre>
+      </div>
+    </div>
+  </div>
+</div>
