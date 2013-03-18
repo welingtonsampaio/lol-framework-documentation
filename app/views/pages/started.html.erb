@@ -1,0 +1,44 @@
+<header class="page">
+  <div class="patterns"></div>
+  <div class="container content">
+    <div class="row">
+      <div class="span10 offset1">
+        <h4>Get Started</h4>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container container-box">
+  <div class="row">
+    <div class="span10 offset1">
+      <div class="box">
+        <p>The "Lol Framework" was developed primarily to work with web application based on Ruby on Rails 3.x, easily
+          installed through its Gems. However trying to cater for all web projects was made available for direct
+          download files. So you can put it in your project and enjoy all the advantages of Lol.</p>
+        <hr />
+        <h3 id="with_rails">Installing with Ruby on Rails</h3>
+        <p>Just add the file to your Gemfile group of assets: gem <code>"lol_framework"</code>.</p>
+        <p>Run the command in the terminal: <code>bundle</code>.</p>
+        <p><strong>Congratulations!</strong> The Lol is already installed on your project.</p>
+        <p>&nbsp;</p>
+        <p>To configure the Rails Lol, you need to run <code>rails generate lol_framework:setup</code>, it created a
+          file in the initializers called <em>lol_framework.rb</em> containing all the modules available for import Lol, this
+          makes your project more light and clean possible.</p>
+        <p>&nbsp;</p>
+        <p>After configured modules which will be needed for the project you need to add to your file SCSS default the
+          following imports:</p>
+        <pre class="prettyprint lang-js">//= require bootstrap
+//= require bootstrap-responsive
+//= require lol</pre>
+        <p>js file and the following imports:</p>
+        <pre class="prettyprint lang-js">//= require jquery
+//= require bootstrap
+//= require lol</pre>
+        <p>Now every time the server is started, the modules will be checked in the requested configuration file
+          initializers, and modified files Lol.</p>
+        <p>&nbsp;</p>
+
+      </div>
+    </div>
+  </div>
+</div>

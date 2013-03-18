@@ -13,6 +13,11 @@
     <div class="span10 offset1">
       <div class="box">
         <p>The Modal's role is to show alert message, with a choice of functions in the control buttons.</p>
+        <p><strong>Requirements:</strong></p>
+        <ul>
+          <li><%= link_to :Core, js_core_path %></li>
+          <li><%= link_to :Button, js_button_path %></li>
+        </ul>
 
         <div class="example">
           <div class="title">
@@ -213,64 +218,324 @@ modal = new Lol.Modal({
           <p>This object contains functions for callbacks run in actions defined Modal system.</p>
 
           <blockquote>
-            <strong>initialize</strong> (<code>Function</code> | Default: <code>default</code>)
-            <p></p>
+            <strong>initialize</strong> (<code>Function</code> | Params: <code>Modal -> object</code>)
+            <p>Receives a function that is performed after the creation of the Modal. You receive a parameter that
+              refers to the object Modal own (class).</p>
           </blockquote>
 
           <blockquote>
-            <strong>buttonClick</strong> (<code>Function</code> | Default: <code>default</code>)
-            <p></p>
+            <strong>buttonClick</strong> (<code>Function</code> | Params: <code>Button -> button</code>, <code>Modal -> object</code>)
+            <p>Feature executed after the click of the button the footer. First shot is the function of the button
+              element and only after this is executed. This method takes two parameters namely: Button, the reference
+              class that button was clicked, Modal is the reference class Modal created.</p>
           </blockquote>
 
           <blockquote>
-            <strong>afterDestroy</strong> (<code>Function</code> | Default: <code>default</code>)
-            <p></p>
+            <strong>afterDestroy</strong> (<code>Function</code> | Params: <code>Modal -> object</code>)
+            <p>Feature run every time before starting the exclusion of Modal. Receives a parameter "Modal" that refers
+              to class Modal created.</p>
           </blockquote>
 
           <blockquote>
-            <strong>beforeDestroy</strong> (<code>Function</code> | Default: <code>default</code>)
-            <p></p>
+            <strong>beforeDestroy</strong> (<code>Function</code> | Params: <code>Modal -> object</code>)
+            <p>Function performed every time after the exclusion of Modal. Receives a parameter "Modal" that refers to
+              class Modal created.</p>
           </blockquote>
         </blockquote>
 
         <blockquote>
           <strong>containers</strong> ( <code>Object</code> )
-          <p></p>
+          <p>Object containing the "id" identifier for each element of the modal.</p>
+
+          <blockquote>
+            <strong>buttons</strong> ( <code>String</code> | Default: <code>lol_modal_buttons</code> )
+            <p>Receives a string containing the "id" container identification buttons.</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>close</strong> ( <code>String</code> | Default: <code>lol_modal_close</code> )
+            <p>Receives a string containing the "id" container identification close.</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>content</strong> ( <code>String</code> | Default: <code>lol_modal_content</code> )
+            <p>Receives a string containing the "id" container identification content.</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>main</strong> ( <code>String</code> | Default: <code>lol_modal_main</code> )
+            <p>Receives a string containing the "id" container identification modal.</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>title</strong> ( <code>String</code> | Default: <code>lol_modal_title</code> )
+            <p>Receives a string containing the "id" container identification title.</p>
+          </blockquote>
         </blockquote>
 
         <blockquote>
           <strong>stylesheets</strong> ( <code>Object</code> )
-          <p></p>
+          <p>Object counting the stylesheets that should be added to each object Modal.</p>
+
+          <blockquote>
+            <strong>buttons</strong> ( <code>Object</code> | Default: <code>{}</code> )
+            <p>Object containing the elements CSS to be inserted into the container of "buttons".</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>close</strong> ( <code>Object</code> | Default: <code>{}</code> )
+            <p>Object containing the elements CSS to be inserted into the container of "close".</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>content</strong> ( <code>Object</code> | Default: <code>{}</code> )
+            <p>Object containing the elements CSS to be inserted into the container of "content".</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>main</strong> ( <code>Object</code> | Default: <code>{}</code> )
+            <p>Object containing the elements CSS to be inserted into the container of "modal".</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>title</strong> ( <code>Object</code> | Default: <code>{}</code> )
+            <p>Object containing the elements CSS to be inserted into the container of "title".</p>
+          </blockquote>
         </blockquote>
 
         <blockquote>
           <strong>classes</strong> ( <code>Object</code> )
-          <p></p>
-        </blockquote>
+          <p>Object containing the classes that will be inserted into every element of Modal.</p>
 
-        <blockquote>
-          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-          <p></p>
+          <blockquote>
+            <strong>buttons</strong> ( <code>String</code> | Default: <code>modal-footer</code> )
+            <p>Style class that will be inserted to the element of "buttons".</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>close</strong> ( <code>String</code> | Default: <code>close</code> )
+            <p>Style class that will be inserted to the element of "close".</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>content</strong> ( <code>String</code> | Default: <code>modal-body</code> )
+            <p>Style class that will be inserted to the element of "content".</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>main</strong> ( <code>String</code> | Default: <code>modal hide fade</code> )
+            <p>Style class that will be inserted to the element of "modal".</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>title</strong> ( <code>String</code> | Default: <code>modal-header</code> )
+            <p>Style class that will be inserted to the element of "title".</p>
+          </blockquote>
         </blockquote>
 
         <hr />
         <h4 id="methods">Methods</h4>
-        <p></p>
-
-        <pre class="prettyprint lang-js linenums"><%= %`` %></pre>
+        <p>The class with Modal method can be executed after its creation check the list below.</p>
 
         <blockquote>
-          <strong>name</strong> ( Receive: <code>Type</code> Returns: <code>Type</code> )
-          <p></p>
+          <strong>destroy</strong>
+          <p>Responsible for deleting the modal element of the browser screen.</p>
           <blockquote>
-            <pre class="prettyprint linenums lang-js"><%= %`` %></pre>
+            <pre class="prettyprint linenums lang-js"><%= %`var modal;
+modal = new Lol.Modal();
+modal.destroy();` %></pre>
           </blockquote>
         </blockquote>
 
         <hr />
         <h4 id="change_defaults">Change Default Configuration</h4>
-        <p></p>
-        <pre class="prettyprint linenums lang-js"><%= %`` %></pre>
+        <p>The class "Modal" allows you to set a new standard configuration model. Below you can see the content
+          standard and how it is configured.</p>
+        <pre class="prettyprint linenums lang-js"><%= %`Lol.modal = {
+  defaults: {
+    /*
+    This parameter facilitates the creation of
+    control buttons
+    Accepts: OK | OK_CANCEL | CANCEL | YES_NO
+    @type {String}
+    */
+    buttons: false,
+    /*
+    String containing the HTML that will be inserted
+    in the body of "Modal"
+    @type {String}
+    */
+    content: null,
+    /*
+    Sets whether to add the button to close the
+    top of the Modal
+    @type {Boolean}
+    */
+    close: true,
+    /*
+    Sets whether the framework should print debug
+    messages to the user
+    @type {Boolean}
+    */
+    debug: false,
+    /*
+    String containing HTML that is inserted into
+    the top of Modal
+    @type {String}
+    */
+    title: null,
+    /*
+    Object containing the parameters of the buttons,
+    if any is required. See the official documentation
+    @see Lol.Button
+    @type {Object}
+    */
+    buttonParams: {},
+    /*
+    This object contains functions for callbacks
+    run in actions defined Modal system
+    @type {Object}
+    */
+    callbacks: {
+      /*
+      Receives a function that is performed after the
+      creation of the Modal
+      @param {Modal}
+      @type {Function}
+      */
+      initialize: function(object) {},
+      /*
+      Feature executed after the click of the
+      button the footer
+      @param {Button}
+      @param {Modal}
+      @type {Function}
+      */
+      buttonClick: function(button, object) {
+        return object.destroy();
+      },
+      afterDestroy: function(object) {},
+      /*
+      Function performed every time after the
+      exclusion of Modal
+      @param {Modal}
+      @type {Function}
+      */
+      beforeDestroy: function(object) {}
+    },
+    /*
+    Object containing the "id" identifier
+    for each element of the modal
+    @type {Object}
+    */
+    containers: {
+      /*
+      Receives a string containing the "id" container
+      identification buttons
+      @type {String}
+      */
+      buttons: 'lol_modal_buttons',
+      /*
+      Receives a string containing the "id" container
+      identification close
+      @type {String}
+      */
+      close: 'lol_modal_close',
+      /*
+      Receives a string containing the "id" container
+      identification content
+      @type {String}
+      */
+      content: 'lol_modal_content',
+      /*
+      Receives a string containing the "id" container
+      identification modal
+      @type {String}
+      */
+      main: 'lol_modal_main',
+      /*
+      Receives a string containing the "id" container
+      identification title
+      @type {String}
+      */
+      title: 'lol_modal_title'
+    },
+    /*
+    Object counting the stylesheets that
+    should be added to each object Modal
+    @type {Object}
+    */
+    stylesheets: {
+      /*
+      Object containing the elements CSS to be inserted
+      into the container of "buttons"
+      @type {Object}
+      */
+      buttons: {},
+      /*
+      Object containing the elements CSS to be inserted
+      into the container of "close"
+      @type {Object}
+      */
+      close: {},
+      /*
+      Object containing the elements CSS to be inserted
+      into the container of "content"
+      @type {Object}
+      */
+      content: {},
+      /*
+      Object containing the elements CSS to be inserted
+      into the container of "modal"
+      @type {Object}
+      */
+      main: {},
+      /*
+      Object containing the elements CSS to be inserted
+      into the container of "title"
+      @type {Object}
+      */
+      title: {}
+    },
+    /*
+    Object containing the classes that will
+    be inserted into every element of Modal
+    @type {Object}
+    */
+    classes: {
+      /*
+      Style class that will be inserted to the
+      element of "buttons"
+      @type {String}
+      */
+      buttons: 'modal-footer',
+      /*
+      Style class that will be inserted to the
+      element of "buttons"
+      @type {String}
+      */
+      close: 'close',
+      /*
+      Style class that will be inserted to the
+      element of "buttons"
+      @type {String}
+      */
+      content: 'modal-body',
+      /*
+      Style class that will be inserted to the
+      element of "buttons"
+      @type {String}
+      */
+      main: 'modal hide fade',
+      /*
+      Style class that will be inserted to the
+      element of "buttons"
+      @type {String}
+      */
+      title: 'modal-header'
+    }
+  }
+};` %></pre>
       </div>
     </div>
   </div>
