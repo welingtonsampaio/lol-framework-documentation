@@ -43,4 +43,7 @@ class JsController < ApplicationController
 
   def backbonejs
   end
+
+  def formvalidate
+  end
 end

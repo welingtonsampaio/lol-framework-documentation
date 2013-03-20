@@ -1,0 +1,549 @@
+<header class="page">
+  <div class="patterns"></div>
+  <div class="container content">
+    <div class="row">
+      <div class="span10 offset1">
+        <h4>Js - FormValidate</h4>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container container-box">
+  <div class="row">
+    <div class="span10 offset1">
+      <div class="box">
+        <p>It validations of forms automatically.</p>
+        <p><strong>Requirements</strong></p>
+        <ul>
+          <li><%= link_to :Core, js_core_path %></li>
+        </ul>
+
+        <div class="example">
+          <div class="title">
+            example
+          </div>
+          <div class="content">
+            <style>
+              input {width: 100%}
+              input.error-field {background-color: #ffdddd;}
+            </style>
+            <form action="#form" data-toggle="form_validate">
+              <label for="vcf">Validating with custom function</label>
+              <input type="text" id="vcf" placeholder="function test_hello (write 'hello' to validate)" data-function="test_hello" />
+              <label for="ver">Validating email through the regular expressions</label>
+              <input type="text" id="ver" placeholder="validate email regex" data-email="true" />
+              <label for="vrf">Validating required field</label>
+              <input type="text" id="vrf" required="required" placeholder="required" />
+              <label for="vml">Validating minimum length (3), is permitted blank value</label>
+              <input type="text" id="vml" minlength="3" placeholder="min length 3" data-allow-empty="true"/>
+              <label for="vmml">Validating maximum length (6)</label>
+              <input type="text" id="vmml" maxlength="6" placeholder="max length 6"/>
+              <label for="vmmv">Validating type number, maximum value (10)</label>
+              <input type="number" id="vmmv" max="10" placeholder="max 10"/>
+              <label for="vmv">Validating type number, minimum value (5)</label>
+              <input type="number" id="vmv" min="5" placeholder="min 5"/>
+              <div><input type="submit" class="btn" value="submit"/></div>
+            </form>
+          </div>
+          <%= content_for :footer do %>
+            <script type="text/javascript">
+              Lol.i18n['pt-br'].t_test = "Mensagem de erro vinda por funcao";
+              Lol.i18n['en-us'].t_test = "Error message coming by function";
+              Lol.FormValidate.addFunctionValidator({
+                "test_hello": function(element, opts) {
+                  element.data('errorMessage', Lol.t("t_test"));
+                  return element.val() == "hello";
+                }
+              });
+            </script>
+          <% end %>
+        </div>
+
+        <div class="example">
+          <div class="title">
+            code
+          </div>
+          <div class="content">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#example-1-html" data-toggle="tab">Html</a></li>
+              <li><a href="#example-1-js" data-toggle="tab">JS</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="example-1-html">
+                <pre class="prettyprint lang-html linenums"><%= %`<form action="#form" data-toggle="form_validate">
+    <label for="vcf">Validating with custom function</label>
+    <input type="text" id="vcf" placeholder="function test_hello (write 'hello' to validate)" data-function="test_hello" />
+    <label for="ver">Validating email through the regular expressions</label>
+    <input type="text" id="ver" placeholder="validate email regex" data-email="true" />
+    <label for="vrf">Validating required field</label>
+    <input type="text" id="vrf" required="required" placeholder="required" />
+    <label for="vml">Validating minimum length (3), is permitted blank value</label>
+    <input type="text" id="vml" minlength="3" placeholder="min length 3" data-allow-empty="true"/>
+    <label for="vmml">Validating maximum length (6)</label>
+    <input type="text" id="vmml" maxlength="6" placeholder="max length 6"/>
+    <label for="vmmv">Validating type number, maximum value (10)</label>
+    <input type="number" id="vmmv" max="10" placeholder="max 10"/>
+    <label for="vmv">Validating type number, minimum value (5)</label>
+    <input type="number" id="vmv" min="5" placeholder="min 5"/>
+    <div><input type="submit" class="btn" value="submit"/></div>
+  </form>` %></pre>
+              </div>
+              <div class="tab-pane" id="example-1-js">
+                <pre class="prettyprint lang-js linenums"><%= %`Lol.i18n['pt-br'].t_test = "Mensagem de erro vinda por funcao";
+Lol.i18n['en-us'].t_test = "Error message coming by function";
+Lol.FormValidate.addFunctionValidator({
+  "test_hello": function(element, opts) {
+    element.data('errorMessage', Lol.t("t_test"));
+    return element.val() == "hello";
+  }
+});` %></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <h4 id="patterns">Default Patterns</h4>
+        <p>phone</p>
+        <pre class="prettyprint lang-js">/([\+][0-9]{1,3}([ \.\-])?)?([\(]{1}[0-9]{3}[\)])?([0-9A-Z \.\-]{1,32})((x|ext|extension)?[0-9]{1,4}?)/</pre>
+        <p>email</p>
+        <pre class="prettyprint lang-js">/((([a-zA-Z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-zA-Z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?/</pre>
+        <p>url</p>
+        <pre class="prettyprint lang-js">/(https?|ftp):\/\/(((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?/</pre>
+        <p>number</p>
+        <pre class="prettyprint lang-js">/-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?/</pre>
+        <p>dateISO</p>
+        <pre class="prettyprint lang-js">/\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2}/</pre>
+        <p>alpha</p>
+        <pre class="prettyprint lang-js">/[a-zA-Z]+/</pre>
+        <p>alphaNumeric</p>
+        <pre class="prettyprint lang-js">/\w+/</pre>
+        <p>integer</p>
+        <pre class="prettyprint lang-js">/\d+/</pre>
+        <hr />
+        <h4 id="all_configurations">All configurations</h4>
+        <p></p>
+        <pre class="prettyprint lang-js linenums"><%= %`new Lol.FormValidate({
+  target        : "form",
+  classActive   : 'active-field',
+  classError    : 'error-field',
+  classValid    : 'valid-field',
+  fieldSelectors: ':input:visible:not(:button):not(:disabled):not(.novalidate):not(:submit)',
+  eventValidators: {
+    focusout: true,
+    focusin : false,
+    change  : true,
+    keyup   : false
+  },
+  runSubmitIsValid                : true,
+  focusFirstInvalidElementOnSubmit: true,
+  validateOnSubmit                : true,
+  debug: false,
+  callbacks: {
+    invalidCallback    : function(element, object) {},
+    validCallback      : function(element, object) {},
+    invalidFormCallback: function(object) {},
+    validFormCallback  : function(object) {}
+  },
+  fn: {
+    markInvalid: function(params) {},
+    markValid  : function(params) {},
+    unmark     : function(params) {}
+  }
+});` %></pre>
+
+        <blockquote>
+          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+          <p></p>
+        </blockquote>
+
+        <blockquote>
+          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+          <p></p>
+        </blockquote>
+
+        <blockquote>
+          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+          <p></p>
+        </blockquote>
+
+        <blockquote>
+          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+          <p></p>
+        </blockquote>
+
+        <blockquote>
+          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+          <p></p>
+        </blockquote>
+
+        <blockquote>
+          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+          <p></p>
+
+          <blockquote>
+            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+            <p></p>
+          </blockquote>
+
+          <blockquote>
+            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+            <p></p>
+          </blockquote>
+
+          <blockquote>
+            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+            <p></p>
+          </blockquote>
+
+          <blockquote>
+            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+            <p></p>
+          </blockquote>
+        </blockquote>
+
+        <blockquote>
+          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+          <p></p>
+        </blockquote>
+
+        <blockquote>
+          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+          <p></p>
+        </blockquote>
+
+        <blockquote>
+          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+          <p></p>
+        </blockquote>
+
+        <blockquote>
+          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+          <p></p>
+        </blockquote>
+
+        <blockquote>
+          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+          <p></p>
+
+          <blockquote>
+            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+            <p></p>
+          </blockquote>
+
+          <blockquote>
+            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+            <p></p>
+          </blockquote>
+
+          <blockquote>
+            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+            <p></p>
+          </blockquote>
+
+          <blockquote>
+            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+            <p></p>
+          </blockquote>
+        </blockquote>
+
+        <blockquote>
+          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+          <p></p>
+
+          <blockquote>
+            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+            <p></p>
+          </blockquote>
+
+          <blockquote>
+            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+            <p></p>
+          </blockquote>
+
+          <blockquote>
+            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
+            <p></p>
+          </blockquote>
+        </blockquote>
+
+        <hr />
+        <h4 id="methods">Methods</h4>
+        <p></p>
+
+        <pre class="prettyprint lang-js linenums"><%= %`var form;
+form = new Lol.FormValidate({
+  target: "form"
+});` %></pre>
+
+        <blockquote>
+          <strong>elementValidate</strong> ( Receive: <code>DOMObject -> element</code> Returns: <code>Boolean</code> )
+          <p>Retrieve all validators element and checks sent</p>
+          <blockquote>
+            <pre class="prettyprint linenums lang-js"><%= %`var form;
+form = new Lol.FormValidate({
+  target: "form"
+});` %></pre>
+          </blockquote>
+        </blockquote>
+
+        <blockquote>
+          <strong>formValidate</strong> ( Returns: <code>Boolean</code> )
+          <p>Validates all elements of the form</p>
+          <blockquote>
+            <pre class="prettyprint linenums lang-js"><%= %`var form;
+form = new Lol.FormValidate({
+  target: "form"
+});` %></pre>
+          </blockquote>
+        </blockquote>
+
+        <blockquote>
+          <strong>getOptsOfElement</strong> ( Receive: <code>DOMObject -> element</code> Returns: <code>Object</code> )
+          <p>Parses the sent and creates an object
+            containing all validators to examine
+            this object</p>
+          <blockquote>
+            <pre class="prettyprint linenums lang-js"><%= %`var form;
+form = new Lol.FormValidate({
+  target: "form"
+});` %></pre>
+          </blockquote>
+        </blockquote>
+
+        <hr />
+        <h4 id="static_methods">Static Methods</h4>
+        <p></p>
+
+        <blockquote>
+          <strong>addPatterns</strong> ( Receive: <code>Object</code> Returns: <code>Object</code> )
+          <p>Adds a validator pattern of the existing
+            library, you can send as many patterns are
+            required for addition</p>
+          <blockquote>
+            <pre class="prettyprint linenums lang-js"><%= %`Lol.FormValidate.addPatterns({
+  pattern_1: /^pattern_1(.)*/,
+  pattern_2: /^pattern_2(.)*/
+});` %></pre>
+          </blockquote>
+        </blockquote>
+
+        <blockquote>
+          <strong>addErrorMessage</strong> ( Receive: <code>Object</code> Returns: <code>Object</code> )
+          <p>Adds the key traducao the name patterns,
+            can be sent as many names are required for
+            addition</p>
+          <blockquote>
+            <pre class="prettyprint linenums lang-js"><%= %`Lol.FormValidate.addErrorMessage({
+  error_1: "name_equal_file_translate_1",
+  error_2: "name_equal_file_translate_2"
+});` %></pre>
+          </blockquote>
+        </blockquote>
+
+        <blockquote>
+          <strong>addFunctionValidator</strong> ( Receive: <code>Object</code> Returns: <code>Object</code> )
+          <p>Adds a function to validators, you can send
+            as many functions are necessary for addition</p>
+          <blockquote>
+            <pre class="prettyprint linenums lang-js"><%= %`Lol.FormValidate.addFunctionValidator({
+  validate_test_1: function(element, opts){},
+  validate_test_2: function(element, opts){}
+});` %></pre>
+          </blockquote>
+        </blockquote>
+
+        <blockquote>
+          <strong>is_to_test</strong> ( Receive: <code>DOMElement</code> Returns: <code>Boolean</code> )
+          <p>Tests if the element is part of the
+            class sent FormValidate</p>
+          <blockquote>
+            <pre class="prettyprint linenums lang-js"><%= %`` %></pre>
+          </blockquote>
+        </blockquote>
+
+        <hr />
+        <h4 id="change_defaults">Change Default Configuration</h4>
+        <p>The class "FormValidate" allows you to set a new standard configuration model. Below you can see the content
+          standard and how it is configured.</p>
+        <pre class="prettyprint linenums lang-js"><%= %`Lol.form_validate = {
+  defaults: {
+    /*
+    DOMObject element that will receive the form validations
+    @type {DOMObject}
+    */
+    target: null,
+    /*
+    Class added when the element is active
+    @type {String}
+    */
+    classActive: 'active-field',
+    /*
+    Class added after the validation of the element and
+    the same is invalid
+    @type {String}
+    */
+    classError: 'error-field',
+    /*
+    Class added after the validation of the element and
+    the same is valid
+    @type {String}
+    */
+    classValid: 'valid-field',
+    /*
+    Contains the selector element to be validated
+    @type {String}
+    */
+    fieldSelectors: ':input:visible:not(:button):not(:disabled):not(.novalidate):not(:submit)',
+    /*
+    Defines which events the elements of the form
+    deve ser validado
+    @type {Object}
+    */
+    eventValidators: {
+      /*
+      Defines if the validator should be tested in the event focusout
+      @type {Boolean}
+      */
+      focusout: true,
+      /*
+      Defines if the validator should be tested in the event focusin
+      @type {Boolean}
+      */
+      focusin: false,
+      /*
+      Defines if the validator should be tested in the event change
+      @type {Boolean}
+      */
+      change: true,
+      /*
+      Defines if the validator should be tested in the event keyup
+      @type {Boolean}
+      */
+      keyup: false
+    },
+    /*
+    Reports whether the system should send the form after
+    all validations are valid
+    @type {Boolean}
+    */
+    runSubmitIsValid: true,
+    /*
+    Sets whether the focus should be placed on the first
+    element of the form that is invalid when the event is
+    triggered submit
+    @type {Boolean}
+    */
+    focusFirstInvalidElementOnSubmit: true,
+    /*
+    When submitting, validate elements that haven't been
+    validated yet?
+    @type {Boolean}
+    */
+    validateOnSubmit: true,
+    /*
+    Sets whether to use the debug mode
+    @type {Boolean}
+    */
+    debug: false,
+    /*
+    Callback stubs
+    @type {Boolean}
+    */
+    callbacks: {
+      /*
+      Function called every time a field is marked as invalid
+      @param {DOMObject} element
+      @param {FormValidate} object
+      @type {Function}
+      */
+      invalidCallback: function(element, object) {},
+      /*
+      Function called every time a field is marked as valid
+      @param {DOMObject} element
+      @param {FormValidate} object
+      @type {Function}
+      */
+      validCallback: function(element, object) {},
+      /*
+      Function triggered whenever the form is submitted and all
+      the fields are invalid
+      @param {FormValidate} object
+      @type {Function}
+      */
+      invalidFormCallback: function(object) {
+        return object.debug("invalid");
+      },
+      /*
+      Function triggered whenever the form is submitted and all
+      the fields are valid
+      @param {FormValidate} object
+      @type {Function}
+      */
+      validFormCallback: function(object) {
+        return object.debug("valid");
+      }
+    },
+    /*
+    Object containing callback functions
+    @type {Object}
+    */
+    fn: {
+      /*
+      Mark field invalid
+      @param {Object} params
+      @type {Function}
+      */
+      markInvalid: function(params) {
+        var element, errorMessage, _this;
+
+        element = $(params.element);
+        _this = params._this;
+        errorMessage = element.data("errorMessage");
+        params.settings.fn.unmark(params);
+        if (errorMessage) {
+          element.data('title', errorMessage);
+        } else {
+          element.data('title', Lol.t(_this.errorMessages[params.error]));
+        }
+        element.tooltip();
+        element.addClass(params.settings.classError);
+        return params.settings.callbacks.invalidCallback(params);
+      },
+      /*
+      Mark field valid
+      @param {Object} params
+      @type {Function}
+      */
+      markValid: function(params) {
+        var element;
+
+        element = $(params.element);
+        params.settings.fn.unmark(params);
+        element.addClass(params.settings.classValid);
+        return params.settings.callbacks.validCallback(params);
+      },
+      /*
+      Clears and removes all events of the element
+      @param {Object} element
+      @type {Function}
+      */
+      unmark: function(params) {
+        var element;
+
+        element = $(params.element);
+        element.tooltip('destroy');
+        element.removeData('title');
+        element.removeData('original-title');
+        element.removeData('errorMessage');
+        element.removeClass(params.settings.classError);
+        return element.removeClass(params.settings.classValid);
+      }
+    }
+  }
+};
+` %></pre>
+      </div>
+    </div>
+  </div>
+</div>
