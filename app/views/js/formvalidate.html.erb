@@ -153,117 +153,148 @@ Lol.FormValidate.addFunctionValidator({
 });` %></pre>
 
         <blockquote>
-          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-          <p></p>
+          <strong>target</strong> (<code>DOMObject</code> | Default: <code>null</code>)
+          <p>DOMObject element that will receive the form validations</p>
         </blockquote>
 
         <blockquote>
-          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-          <p></p>
+          <strong>classActive</strong> (<code>String</code> | Default: <code>active-field</code>)
+          <p>Class added when the element is active</p>
         </blockquote>
 
         <blockquote>
-          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-          <p></p>
+          <strong>classError</strong> (<code>String</code> | Default: <code>error-field</code>)
+          <p>Class added after the validation of the element and
+            the same is invalid</p>
         </blockquote>
 
         <blockquote>
-          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-          <p></p>
+          <strong>classValid</strong> (<code>String</code> | Default: <code>valid-field</code>)
+          <p>Class added after the validation of the element and
+            the same is valid</p>
         </blockquote>
 
         <blockquote>
-          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-          <p></p>
+          <strong>fieldSelectors</strong> (<code>String</code> | Default:
+          <code>:input:visible:not(:button):not(:disabled):not(.novalidate):not(:submit)</code>)
+          <p>Contains the selector element to be validated</p>
         </blockquote>
 
         <blockquote>
-          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-          <p></p>
+          <strong>eventValidators</strong> (<code>Object</code>)
+          <p>Defines which events the elements of the form
+            must be validated</p>
 
           <blockquote>
-            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-            <p></p>
+            <strong>focusout</strong> (<code>Boolean</code> | Default: <code>true</code>)
+            <p>Defines if the validator should be tested in the event focusout</p>
           </blockquote>
 
           <blockquote>
-            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-            <p></p>
+            <strong>focusin</strong> (<code>Boolean</code> | Default: <code>false</code>)
+            <p>Defines if the validator should be tested in the event focusin</p>
           </blockquote>
 
           <blockquote>
-            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-            <p></p>
+            <strong>change</strong> (<code>Boolean</code> | Default: <code>true</code>)
+            <p>Defines if the validator should be tested in the event change</p>
           </blockquote>
 
           <blockquote>
-            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-            <p></p>
-          </blockquote>
-        </blockquote>
-
-        <blockquote>
-          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-          <p></p>
-        </blockquote>
-
-        <blockquote>
-          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-          <p></p>
-        </blockquote>
-
-        <blockquote>
-          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-          <p></p>
-        </blockquote>
-
-        <blockquote>
-          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-          <p></p>
-        </blockquote>
-
-        <blockquote>
-          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-          <p></p>
-
-          <blockquote>
-            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-            <p></p>
-          </blockquote>
-
-          <blockquote>
-            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-            <p></p>
-          </blockquote>
-
-          <blockquote>
-            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-            <p></p>
-          </blockquote>
-
-          <blockquote>
-            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-            <p></p>
+            <strong>keyup</strong> (<code>Boolean</code> | Default: <code>false</code>)
+            <p>Defines if the validator should be tested in the event keyup</p>
           </blockquote>
         </blockquote>
 
         <blockquote>
-          <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-          <p></p>
+          <strong>runSubmitIsValid</strong> (<code>Boolean</code> | Default: <code>true</code>)
+          <p>Reports whether the system should send the form after
+            all validations are valid</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>focusFirstInvalidElementOnSubmit</strong> (<code>Boolean</code> | Default: <code>true</code>)
+          <p>Sets whether the focus should be placed on the first
+            element of the form that is invalid when the event is
+            triggered submit</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>validateOnSubmit</strong> (<code>Boolean</code> | Default: <code>true</code>)
+          <p>When submitting, validate elements that haven't been
+            validated yet?</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>debug</strong> (<code>Boolean</code> | Default: <code>false</code>)
+          <p>Sets whether to use the debug mode</p>
+        </blockquote>
+
+        <blockquote>
+          <strong>callbacks</strong> (<code>Object</code>)
+          <p>Callback stubs</p>
 
           <blockquote>
-            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-            <p></p>
+            <strong>invalidCallback</strong> (<code>Function</code> | Default: see default settings)
+            <small><strong>@param</strong> <code>DOMObject</code> -> element</small>
+            <small><strong>@param</strong> <code>FormValidate</code> -> object</small>
+            <p>Function called every time a field is marked as invalid</p>
           </blockquote>
 
           <blockquote>
-            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-            <p></p>
+            <strong>validCallback</strong> (<code>Function</code> | Default: see default settings)
+            <small><strong>@param</strong> <code>DOMObject</code> -> element </small>
+            <small><strong>@param</strong> <code>FormValidate</code> -> object</small>
+            <p>Function called every time a field is marked as valid</p>
           </blockquote>
 
           <blockquote>
-            <strong>name</strong> (<code>Type</code> | Default: <code>default</code>)
-            <p></p>
+            <strong>invalidFormCallback</strong> (<code>Function</code> | Default: see default settings)
+            <small><strong>@param</strong> <code>FormValidate</code> -> object</small>
+            <p>Function triggered whenever the form is submitted and all
+              the fields are invalid</p>
+          </blockquote>
+
+          <blockquote>
+            <strong>validFormCallback</strong> (<code>Function</code> | Default: see default settings)
+            <small><strong>@param</strong> <code>FormValidate</code> -> object</small>
+            <p>Function triggered whenever the form is submitted and all
+              the fields are valid</p>
+          </blockquote>
+        </blockquote>
+
+        <blockquote>
+          <strong>fn</strong> (<code>Object</code>)
+          <p>Object containing callback functions</p>
+
+          <blockquote>
+            <strong>markInvalid</strong> (<code>Function</code> | Default: see default settings)
+            <small><strong>@param</strong> <code>Object</code> -> params</small>
+            <p>Mark field invalid</p>
+            <pre class="prettyprint lang-js linenums"><%= %`// example "params" receives
+{
+  _this: FormValidate, // Class of FormValidate
+  element: DOMObject,  // Element validated as invalid
+  error: "function",   // Validation that triggered the error
+  settings: Object     // Settings class FormValidate
+}` -%></pre>
+          </blockquote>
+
+          <blockquote>
+            <strong>markValid</strong> (<code>Function</code> | Default: see default settings)
+            <small><strong>@param</strong> <code>Object</code> -> params</small>
+            <p>Mark field valid</p>
+            <pre class="prettyprint lang-js linenums"><%= %`// example "params" receives
+{
+  element: DOMObject,  // Element validated as invalid
+  settings: Object     // Settings class FormValidate
+}` -%></pre>
+          </blockquote>
+
+          <blockquote>
+            <strong>unmark</strong> (<code>Function</code> | Default: see default settings)
+            <small><strong>@param</strong> <code>Object</code> -> params</small>
+            <p>Clears and removes all events of the element</p>
           </blockquote>
         </blockquote>
 
@@ -358,7 +389,7 @@ form = new Lol.FormValidate({
           <p>Tests if the element is part of the
             class sent FormValidate</p>
           <blockquote>
-            <pre class="prettyprint linenums lang-js"><%= %`` %></pre>
+            <pre class="prettyprint linenums lang-js"><%= %`Lol.FormValidate.is_to_test( jQuery("form").first() ); // true if the object configures FromValidate` %></pre>
           </blockquote>
         </blockquote>
 

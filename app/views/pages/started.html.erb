@@ -17,27 +17,95 @@
           download files. So you can put it in your project and enjoy all the advantages of Lol.</p>
         <hr />
         <h3 id="with_rails">Installing with Ruby on Rails</h3>
-        <p>Just add the file to your Gemfile group of assets: gem <code>"lol_framework"</code>.</p>
+        <p>Just add the file to your Gemfile group of assets: <code>gem "lol_framework"</code>.</p>
         <p>Run the command in the terminal: <code>bundle</code>.</p>
         <p><strong>Congratulations!</strong> The Lol is already installed on your project.</p>
         <p>&nbsp;</p>
         <p>To configure the Rails Lol, you need to run <code>rails generate lol_framework:setup</code>, it created a
-          file in the initializers called <em>lol_framework.rb</em> containing all the modules available for import Lol, this
-          makes your project more light and clean possible.</p>
+          file in the initializers called <em>lol_framework.rb</em> containing all the modules available for import Lol,
+          this makes your project more light and clean possible.</p>
         <p>&nbsp;</p>
-        <p>After configured modules which will be needed for the project you need to add to your file SCSS default the
-          following imports:</p>
+        <p>He insert a content file in your "application" of css and javascript, importing the files needed for the
+          functioning of the framework. Below you can see a copy of the rows inserted in the file.</p>
+        <p>CSS or SCSS:</p>
         <pre class="prettyprint lang-js">//= require bootstrap
 //= require bootstrap-responsive
 //= require lol</pre>
-        <p>js file and the following imports:</p>
+        <p>JavaScript or CoffeeScript:</p>
         <pre class="prettyprint lang-js">//= require jquery
 //= require bootstrap
 //= require lol</pre>
         <p>Now every time the server is started, the modules will be checked in the requested configuration file
           initializers, and modified files Lol.</p>
         <p>&nbsp;</p>
-
+        <h4 id="config_models_backbone">Configuring the models with Backbone.js</h4>
+        <p>First we need to configure the environment to get the classes of models in order to work. To do this in the
+          terminal: <code>rails g backbone:install</code>. This command will create a series of folders within the
+          directory of <strong>assets/javascripts</strong>, as listed below:</p>
+        <pre>- assets
+ `- javascripts
+   `- backbone
+     `-models
+     app_name.js.coffee</pre>
+        <p>Now whenever you are working with a model with Lol, you can create it automatically by the terminal with the
+          command: <code>rails g backbone:model ModelName field:type ...</code></p>
+        <p>This command will create a model class in the "backbone / models".</p>
+        <hr />
+        <h3 id="without_rails">Installing without Ruby on Rails</h3>
+        <p>Go to the download area through the following link (<%= link_to :link, download_path -%>) downloads and
+          follow the next steps.</p>
+        <h5>1. Step</h5>
+        <p>Add the folder with the files in your project.</p>
+        <h5>2. Step</h5>
+        <p>Add header in the project the following imports:</p>
+        <pre class="prettyprint lang-html"><%= %`<link href="assets/stylesheets/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
+<link href="assets/stylesheets/bootstrap-responsive.min.css" media="all" rel="stylesheet" type="text/css" />
+<link href="assets/stylesheets/lol.min.css" media="all" rel="stylesheet" type="text/css" />
+<script src="assets/javascripts/lol_framework/Lol.init.min.js" type="text/javascript"></script>
+<script src="assets/javascripts/lol_framework/Lang/en-us.js" type="text/javascript"></script>
+<script src="assets/javascripts/lol_framework/Lang/pt-br.js" type="text/javascript"></script>
+<script src="assets/javascripts/lol_framework/I18n.min.js" type="text/javascript"></script>
+<script src="assets/javascripts/lol_framework/Lol.min.js" type="text/javascript"></script>` %></pre>
+        <p>&nbsp;</p>
+        <hr />
+        <h3 id="building_html">Building the HTML</h3>
+        <p>It is necessary to add the class <code>lol</code> on the html element</p>
+        <p>It is also necessary to add the meta tag to work with us responsibilities mobile devices.</p>
+        <pre><%= %`<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />` -%></pre>
+        <h6>The structure template for a standard application with rails</h6>
+        <pre class="prettyprint lang-html linenums"><%= %`<!DOCTYPE html>
+<html class="lol">
+<head>
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+  <title>Your title</title>
+  <%= stylesheet_link_tag    "application", :media => "all" % >
+  <%= javascript_include_tag "application" % >
+  <%= csrf_meta_tags % >
+</head>
+<body>
+  <%= yield % >
+  <%= yield :footer % >
+</body>
+</html>` %></pre>
+        <h6>The structure template for a standard application with HTML</h6>
+        <pre class="prettyprint lang-html linenums"><%= %`<!DOCTYPE html>
+<html class="lol">
+<head>
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+  <title>Your title</title>
+  <link href="assets/stylesheets/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="assets/stylesheets/bootstrap-responsive.min.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="assets/stylesheets/lol.min.css" media="all" rel="stylesheet" type="text/css" />
+  <script src="assets/javascripts/lol_framework/Lol.init.min.js" type="text/javascript"></script>
+  <script src="assets/javascripts/lol_framework/Lang/en-us.js" type="text/javascript"></script>
+  <script src="assets/javascripts/lol_framework/Lang/pt-br.js" type="text/javascript"></script>
+  <script src="assets/javascripts/lol_framework/I18n.min.js" type="text/javascript"></script>
+  <script src="assets/javascripts/lol_framework/Lol.min.js" type="text/javascript"></script>
+</head>
+<body>
+  content
+</body>
+</html>` %></pre>
       </div>
     </div>
   </div>
