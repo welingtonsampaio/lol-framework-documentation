@@ -26,6 +26,7 @@ LolFramework::Application.routes.draw do
   get "js/modal"        => "js#modal",        as: :js_modal
   get "js/utils"        => "js#utils",        as: :js_utils
   get "js/formvalidate" => "js#formvalidate", as: :js_formvalidate
+  get "js/masked"       => "js#masked",       as: :js_masked
 
   # pages
   get "pages/teste"
